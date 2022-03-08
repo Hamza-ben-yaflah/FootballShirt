@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu {
+  background-color: #100c0d;
+}
+
+.link {
+  color: white !important;
+}
+
+.link:hover {
+  color: #cc8b65 !important;
+}

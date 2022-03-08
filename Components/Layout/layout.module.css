@@ -1,0 +1,12 @@
+.footer {
+  margin-top: 5em;
+  background-color: #100c0d;
+}
+.header {
+  background-color: #100c0d;
+  margin-bottom: 6em;
+  height: fit-content;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
