@@ -12,17 +12,20 @@ const FooterComponent = () => {
     <div className={styles.Cont}>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          <Title level={5} underline={true}>
+          <Title level={5} underline={true} type="danger">
             NOS SRVICE
           </Title>
-          <div className={styles.parag}>
-            <a>Livrison</a>
-            <br />
-            <a>Garantie</a>
-            <br />
-            <a>Donner votre avis</a>
-            <br />
-          </div>
+          <ul className={styles.parag}>
+            <li>
+              <a>Livrison</a>
+            </li>
+            <li>
+              <a>Garantie</a>
+            </li>
+            <li>
+              <a>Donner votre avis</a>
+            </li>
+          </ul>
         </div>
         <div className={styles.parag}>
           <Title level={5} underline={true} type="danger">
