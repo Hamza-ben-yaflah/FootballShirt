@@ -16,7 +16,7 @@ const NavBar = () => {
       />
       <Menu mode="horizontal" className={styles.menu}>
         <Menu.Item>
-          <Link href={"/app"} passHref>
+          <Link href={"/"} passHref>
             <a className={styles.link}>Home </a>
           </Link>
         </Menu.Item>
@@ -30,10 +30,9 @@ const NavBar = () => {
             <a className={styles.link}>NewProduct</a>
           </Link>
         </Menu.Item>
-
         <Menu.Item>
           <Link href={"/app/TeacherDashboard"} passHref>
-            <a className={styles.link}>MatchWorn </a>
+            <a className={styles.link}>MatchWorn</a>
           </Link>
         </Menu.Item>
       </Menu>

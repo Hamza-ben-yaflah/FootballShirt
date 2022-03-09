@@ -1,7 +1,11 @@
 .footer {
-  margin-top: 5em;
   background-color: #100c0d;
 }
+
+.content {
+  margin: 5em 0;
+}
+
 .header {
   background-color: #100c0d;
   margin-bottom: 6em;

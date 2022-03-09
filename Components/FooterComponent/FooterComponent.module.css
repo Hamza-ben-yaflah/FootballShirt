@@ -8,7 +8,7 @@
 }
 
 .parag {
-  color: white;
+  color: rgb(255, 255, 255) !important;
   list-style-type: none;
 }
 .parag a:hover {

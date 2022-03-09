@@ -1,4 +1,6 @@
-import Layout from "../Components/Layout/Layout";
+import { Divider } from "antd";
+import Title from "antd/lib/typography/Title";
+import CardContainer from "../Components/CardContainer/CardContainer";
 
 export const client = require("contentful").createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -19,9 +21,14 @@ const Home = (data: any) => {
   console.log(data);
 
   return (
-    <div>
-      <Layout data={data}></Layout>
-    </div>
+    <>
+      <Divider orientation="left" plain className="divider">
+        <Title level={1} type="danger">
+          Shirts
+        </Title>
+      </Divider>
+      <CardContainer data={data}></CardContainer>;
+    </>
   );
 };
 

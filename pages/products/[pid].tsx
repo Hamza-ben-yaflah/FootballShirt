@@ -1,7 +1,8 @@
-import { Col, Row } from "antd";
+import { Button, Col, Row } from "antd";
 import Typography from "antd/lib/typography";
 import Image from "next/image";
-const { Text } = Typography;
+import styles from "./pid.module.css";
+const { Text, Title } = Typography;
 
 export const client = require("contentful").createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -25,9 +26,9 @@ const ShirtDetails = ({ details }: { details: any }) => {
   console.log(details.items[0].fields.description);
 
   return (
-    <div>
+    <div className={styles.container}>
       <Row>
-        <Col span={12}>
+        <Col span={12} push={0}>
           <Image
             width={600}
             height={600}
@@ -35,9 +36,33 @@ const ShirtDetails = ({ details }: { details: any }) => {
             src={"https:" + details.items[0].fields.shirtImage.fields.file.url}
           />
         </Col>
-        <Col span={12}>
-          <Text strong>{details.items[0].fields.description}</Text>
-          <Text strong>{details.items[0].fields.description}</Text>
+        <Col span={12} push={1}>
+          <Title level={3} type="danger">
+            {details.items[0].fields.description}
+          </Title>
+          <br />
+          <br />
+          <Title type="danger" level={5}>
+            Size :
+          </Title>
+          <Text>{details.items[0].fields.size}</Text>
+
+          <Title level={5} type="danger">
+            Price :
+          </Title>
+          <Text>{`£ ${details.items[0].fields.price}`}</Text>
+          <Title level={5} type="danger">
+            Player :
+          </Title>
+          <Text>{details.items[0].fields.player}</Text>
+          <div className={styles.btn}>
+            <Button type="primary" danger size="large">
+              ADD TO CART
+            </Button>
+            <Button type="primary" danger size="large">
+              BUY NOW
+            </Button>
+          </div>
         </Col>
       </Row>
     </div>
