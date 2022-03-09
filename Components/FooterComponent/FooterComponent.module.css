@@ -9,6 +9,7 @@
 
 .parag {
   color: white;
+  list-style-type: none;
 }
 .parag a:hover {
   color: #cc8b65;

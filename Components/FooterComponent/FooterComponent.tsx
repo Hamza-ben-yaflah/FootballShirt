@@ -11,53 +11,56 @@ const FooterComponent = () => {
   return (
     <div className={styles.Cont}>
       <div className={styles.container}>
-        <div className={styles.wrapper}>
+        <ul className={styles.parag}>
           <Title level={5} underline={true} type="danger">
-            NOS SRVICE
+            NOS SRVICES
           </Title>
-          <ul className={styles.parag}>
-            <li>
-              <a>Livrison</a>
-            </li>
-            <li>
-              <a>Garantie</a>
-            </li>
-            <li>
-              <a>Donner votre avis</a>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.parag}>
+
+          <li>
+            <a>Livrison</a>
+          </li>
+          <li>
+            <a>Garantie</a>
+          </li>
+          <li>
+            <a>Donner votre avis</a>
+          </li>
+        </ul>
+        <ul className={styles.parag}>
           <Title level={5} underline={true} type="danger">
             PRODUCTS
           </Title>
-          <a>Livrison</a>
-          <br />
-          <a>Garantie</a>
-          <br />
-          <a>Donner votre avis</a>
-          <br />
-          <a>Livrison</a>
-        </div>
-        <div className={styles.parag}>
+          <li>
+            <a>Shirt</a>
+          </li>
+          <li>
+            <a>Livrison</a>
+          </li>
+          <li>
+            <a>Livrison</a>
+          </li>
+        </ul>
+        <ul className={styles.parag}>
           <Title level={5} underline={true} type="danger">
             CONTACT
           </Title>
-
-          <a>
-            <MailOutlined /> exemple@example.com
-          </a>
-          <br />
-          <a>
-            <PhoneOutlined />
-            6666666
-          </a>
-          <br />
-          <a>
-            <EnvironmentOutlined /> Hay Zhour
-          </a>
-          <br />
-        </div>
+          <li>
+            <a>
+              <MailOutlined /> exemple@example.com
+            </a>
+          </li>
+          <li>
+            <a>
+              <PhoneOutlined />
+              6666666
+            </a>
+          </li>
+          <li>
+            <a>
+              <EnvironmentOutlined /> Hay Zhour
+            </a>
+          </li>
+        </ul>
         <div className={styles.parag}>
           <Title level={5} underline={true} type="danger">
             SUIVEZ-NOUS
