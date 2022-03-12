@@ -12,7 +12,7 @@ const FooterComponent = () => {
     <div className={styles.Cont}>
       <div className={styles.container}>
         <ul className={styles.parag}>
-          <Title level={5} underline={true} type="danger">
+          <Title level={5} underline={true}>
             NOS SRVICES
           </Title>
 
@@ -27,7 +27,7 @@ const FooterComponent = () => {
           </li>
         </ul>
         <ul className={styles.parag}>
-          <Title level={5} underline={true} type="danger">
+          <Title level={5} underline={true}>
             PRODUCTS
           </Title>
           <li>
@@ -41,7 +41,7 @@ const FooterComponent = () => {
           </li>
         </ul>
         <ul className={styles.parag}>
-          <Title level={5} underline={true} type="danger">
+          <Title level={5} underline={true}>
             CONTACT
           </Title>
           <li>
@@ -62,7 +62,7 @@ const FooterComponent = () => {
           </li>
         </ul>
         <div className={styles.parag}>
-          <Title level={5} underline={true} type="danger">
+          <Title level={5} underline={true}>
             SUIVEZ-NOUS
           </Title>
           <a>

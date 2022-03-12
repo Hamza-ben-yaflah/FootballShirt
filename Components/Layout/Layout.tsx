@@ -8,7 +8,7 @@ const Layout = ({ children }: any) => {
   return (
     <div>
       <Head>
-        <title>FootBallShirt</title>
+        <title>VintageShirt</title>
       </Head>
       <Header className={styles.header}>
         <NavBar />

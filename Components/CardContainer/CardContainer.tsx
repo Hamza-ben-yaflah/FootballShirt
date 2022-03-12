@@ -7,7 +7,15 @@ const CardContaier = ({ data }: any) => {
   return (
     <div className={styles.cardContainer}>
       {data.data.map((card: any) => (
-        <Card key={card.sys.id} card={card} />
+        <Card
+          key={card.sys.id}
+          card={{
+            id: card.sys.id,
+            image: card.fields.shirtImage.fields.file.url,
+            price: card.fields.price,
+            description: card.fields.description,
+          }}
+        />
       ))}
     </div>
   );

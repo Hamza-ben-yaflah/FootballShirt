@@ -1,17 +1,25 @@
 .wrapper {
   display: flex;
   justify-content: space-around;
+  height: 150px;
 }
 
 .menu {
-  background-color: #100c0d;
-  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
 }
-
+.search {
+  display: flex;
+  align-items: center;
+  width: 100;
+}
 .link {
+  font-size: 20px;
   color: white !important;
 }
 
 .link:hover {
-  color: #cc8b65 !important;
+  color: #63b32f !important;
 }

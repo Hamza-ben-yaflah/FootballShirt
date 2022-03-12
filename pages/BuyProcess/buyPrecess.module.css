@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  margin-left: 50px;
+}
+.checkbox {
+  margin-left: 20px;
+}
+
+.btn1 {
+  display: flex;
+  justify-content: center;
+}
