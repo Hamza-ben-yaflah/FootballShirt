@@ -1,14 +1,20 @@
 .wrapper {
   display: flex;
   justify-content: space-around;
-  height: 150px;
+  align-items: center;
+}
+
+.icon {
+  margin-left: auto;
+}
+.section {
+  color: black;
 }
 
 .menu {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
 }
 .search {
   display: flex;
@@ -17,9 +23,15 @@
 }
 .link {
   font-size: 20px;
-  color: white !important;
+  color: white;
 }
 
 .link:hover {
-  color: #63b32f !important;
+  color: #63b32f;
+}
+
+.img {
+  cursor: pointer;
+  width: 50%;
+  height: 50%;
 }

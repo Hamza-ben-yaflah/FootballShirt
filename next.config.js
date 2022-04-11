@@ -19,6 +19,7 @@ module.exports = withAntdLess({
     "@label-color": "#000000",
     "@card-head-color": "#000000",
     "@checkbox-color": "#63B32F",
+    "@menu-dark-bg": "#000000",
   },
   // optional
   lessVarsFilePath: "./src/styles/variables.less",
