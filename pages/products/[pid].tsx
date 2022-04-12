@@ -24,8 +24,8 @@ const ShirtDetails = ({ details }: { details: any }) => {
 
   return (
     <div className={styles.container}>
-      <Row>
-        <Col span={12} push={0}>
+      <Row justify="center">
+        <Col push={0} lg={12}>
           <Image
             width={600}
             height={600}
@@ -33,7 +33,7 @@ const ShirtDetails = ({ details }: { details: any }) => {
             src={"https:" + details.items[0].fields.shirtImage.fields.file.url}
           />
         </Col>
-        <Col span={12} push={1}>
+        <Col lg={12}>
           <span className={styles.span}>
             {details.items[0].fields.description}
           </span>

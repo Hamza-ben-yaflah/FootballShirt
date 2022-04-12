@@ -6,6 +6,11 @@
   display: flex;
   justify-content: space-between;
 }
+@media screen and (max-width: 720px) {
+  .container {
+    flex-wrap: wrap;
+  }
+}
 
 .parag {
   color: rgb(255, 255, 255) !important;

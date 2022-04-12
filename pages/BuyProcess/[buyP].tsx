@@ -24,13 +24,13 @@ const buyProcess = ({ details }: { details: any }) => {
       <Divider orientation="left" plain className="divider">
         <Title level={2}>SHIPPING ADDRESS</Title>
       </Divider>
-      <Row>
-        <Col span={12} pull={1}>
+      <Row justify="space-around">
+        <Col span={12}>
           <div className={styles.container}>
             <BuyForm />
           </div>
         </Col>
-        <Col span={12} push={2}>
+        <Col span={12}>
           <Card
             card={{
               id: "",
@@ -41,19 +41,6 @@ const buyProcess = ({ details }: { details: any }) => {
           />
         </Col>
       </Row>
-      <Divider orientation="left" plain className="divider">
-        <Title level={2}>SHIPPING METHODE</Title>
-      </Divider>
-      <div className={styles.checkbox}>
-        <Space direction="vertical">
-          <Checkbox>DHL EXPRESS DELIVERY TO EUROPE 11£</Checkbox>
-          <br />
-          <Checkbox>DHL EXPRESS DELIVERY OUTSIDE EUROPE 16£</Checkbox>
-        </Space>
-      </div>
-      <div className={styles.btn1}>
-        <Button type="primary">NEXT STEP</Button>
-      </div>
     </>
   );
 };

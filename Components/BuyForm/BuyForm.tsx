@@ -378,6 +378,9 @@ const BuyForm = () => {
       >
         <Input />
       </Form.Item>
+      DHL EXPRESS DELIVERY TO EUROPE 11£()
+      <br />
+      <br />
       <div className={styles.btn}>
         <Form.Item>
           <Button type="primary" htmlType="submit">
