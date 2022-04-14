@@ -1,0 +1,17 @@
+.wrapper1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper2 {
+  display: flex;
+  justify-content: space-between;
+}
+.itemWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.shippWrapper {
+  display: flex;
+  flex-direction: column;
+}

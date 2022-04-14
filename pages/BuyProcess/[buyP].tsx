@@ -27,7 +27,7 @@ const buyProcess = ({ details }: { details: any }) => {
       <Row justify="space-around">
         <Col span={12}>
           <div className={styles.container}>
-            <BuyForm />
+            <BuyForm details={details} />
           </div>
         </Col>
         <Col span={12}>

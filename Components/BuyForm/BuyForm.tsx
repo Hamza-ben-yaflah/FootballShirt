@@ -1,10 +1,51 @@
 import { Button, Form, Input, Select } from "antd";
 import styles from "./BuyForm.module.css";
+import { useState } from "react";
+import Link from "next/link";
+import Router from "next/router";
+
 const { Option } = Select;
 
-const BuyForm = () => {
+interface dataProps {
+  email: string;
+  firstname: string;
+  lastname: string;
+  country: string;
+  streetAdress: string;
+  city: string;
+  phone: string;
+}
+
+const BuyForm = ({ details }: { details: any }) => {
+  console.log(details);
+
+  const [data, setData] = useState<dataProps>();
+
+  const onFinish = (values: any) => {
+    setData(values);
+  };
+  console.log("S:", data);
+  const email = data?.email;
+  const firstname = data?.firstname;
+  const lastname = data?.lastname;
+  const country = data?.country;
+  const streetAdress = data?.streetAdress;
+  const city = data?.city;
+  const phone = data?.phone;
+
+  function sendProps(details: any, data: dataProps) {
+    console.log("hello", data);
+
+    console.log(details);
+
+    Router.push({
+      pathname: `/Checkout/${details.items[0].sys.id}`,
+      query: { email, firstname, lastname, country, streetAdress, city, phone },
+    });
+  }
+
   return (
-    <Form name="buyProcess" wrapperCol={{ span: 20 }}>
+    <Form name="buyProcess" wrapperCol={{ span: 20 }} onFinish={onFinish}>
       <Form.Item
         name="email"
         label="E-mail"
@@ -113,7 +154,7 @@ const BuyForm = () => {
           </Option>
           <Option value="Cook Islands">Cook Islands</Option>
           <Option value="Costa Rica">Costa Rica</Option>
-          <Option value="Cote D'ivoire">Cote D'ivoire</Option>
+          <Option value="Cote D'ivoire">Cote D ivoire</Option>
           <Option value="Croatia">Croatia</Option>
           <Option value="Cuba">Cuba</Option>
           <Option value="Cyprus">Cyprus</Option>
@@ -383,10 +424,21 @@ const BuyForm = () => {
       <br />
       <div className={styles.btn}>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
-            CONFIRM
+          {/* <Link href={`/Checkout/${details.items[0].sys.id}`} passHref> */}
+          <Button type="primary" size="large" shape="round" htmlType="submit">
+            <a>Confirm</a>
           </Button>
+          {/* </Link> */}
         </Form.Item>
+
+        <Button
+          type="primary"
+          size="large"
+          shape="round"
+          onClick={() => sendProps(details)}
+        >
+          <a>NEXT</a>
+        </Button>
       </div>
     </Form>
   );
