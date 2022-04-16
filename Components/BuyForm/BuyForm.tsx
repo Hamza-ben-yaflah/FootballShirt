@@ -1,7 +1,6 @@
 import { Button, Form, Input, Select } from "antd";
 import styles from "./BuyForm.module.css";
 import { useState } from "react";
-import Link from "next/link";
 import Router from "next/router";
 
 const { Option } = Select;
@@ -19,30 +18,14 @@ interface dataProps {
 const BuyForm = ({ details }: { details: any }) => {
   console.log(details);
 
-  const [data, setData] = useState<dataProps>();
-
-  const onFinish = (values: any) => {
-    setData(values);
-  };
-  console.log("S:", data);
-  const email = data?.email;
-  const firstname = data?.firstname;
-  const lastname = data?.lastname;
-  const country = data?.country;
-  const streetAdress = data?.streetAdress;
-  const city = data?.city;
-  const phone = data?.phone;
-
-  function sendProps(details: any, data: dataProps) {
-    console.log("hello", data);
-
-    console.log(details);
-
+  const onFinish = (values: dataProps) => {
+    const { email, firstname, lastname, country, streetAdress, city, phone } =
+      values;
     Router.push({
       pathname: `/Checkout/${details.items[0].sys.id}`,
       query: { email, firstname, lastname, country, streetAdress, city, phone },
     });
-  }
+  };
 
   return (
     <Form name="buyProcess" wrapperCol={{ span: 20 }} onFinish={onFinish}>
@@ -424,21 +407,10 @@ const BuyForm = ({ details }: { details: any }) => {
       <br />
       <div className={styles.btn}>
         <Form.Item>
-          {/* <Link href={`/Checkout/${details.items[0].sys.id}`} passHref> */}
           <Button type="primary" size="large" shape="round" htmlType="submit">
             <a>Confirm</a>
           </Button>
-          {/* </Link> */}
         </Form.Item>
-
-        <Button
-          type="primary"
-          size="large"
-          shape="round"
-          onClick={() => sendProps(details)}
-        >
-          <a>NEXT</a>
-        </Button>
       </div>
     </Form>
   );

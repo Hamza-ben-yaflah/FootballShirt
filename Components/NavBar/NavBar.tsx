@@ -6,10 +6,19 @@ import Link from "next/link";
 import vintage from "../../public/vintage.jpg";
 import styles from "./NavBar.module.css";
 
+import React, { useRef } from "react";
+
 const NavBar = () => {
   return (
-    <div style={{ backgroundColor: "black" }}>
-      <div className={styles.wrapper}>
+    <div
+      style={{
+        backgroundColor: "black",
+      }}
+    >
+      <div
+        className={styles.wrapper}
+        style={{ height: "200px", overflowY: "auto" }}
+      >
         <div></div>
         <Link href="/" passHref>
           <Image
@@ -23,13 +32,12 @@ const NavBar = () => {
         <ShoppingCartOutlined style={{ color: "white", fontSize: "30px" }} />
       </div>
       <section className={styles.section}>
-        <Menu mode="horizontal" className={styles.menu} theme="dark">
+        <Menu className={styles.menu} theme="dark">
           <Menu.Item>
             <Link href={"/"} passHref>
               <a className={styles.link}>Home </a>
             </Link>
           </Menu.Item>
-
           <Menu.Item>
             <Link href={"/"} passHref>
               <a className={styles.link}>NewProduct</a>

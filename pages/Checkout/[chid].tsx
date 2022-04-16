@@ -2,10 +2,10 @@ import { Col, Divider, Row } from "antd";
 import Title from "antd/lib/typography/Title";
 import Text from "antd/lib/typography/Text";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { client } from "../../client/contentful";
-import Card from "../../Components/Card/Card";
 import styles from "./Checkout.module.css";
+import { PayPalButton } from "react-paypal-button-v2";
 import { useRouter } from "next/router";
 
 export async function getServerSideProps(context: any) {
@@ -23,6 +23,26 @@ const Checkout = ({ details }: { details: any }) => {
   const shipping = 11;
   const sum = shipping + details.items[0].fields.price;
   console.log(details);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+
+  const addPaypall = () => {
+    if (window.paypal) {
+      setScriptLoaded(true);
+      return;
+    }
+    const script = document.createElement("script");
+    script.src =
+      "https://www.paypal.com/sdk/js?client-id=AZd8WuAQ2bTZMlf0-4WjRL-kyJg5LIZceVDGC1cwOXQFVShXO-CZOomOI5len43VfbWhv_Wy4uJ3iygm";
+
+    script.type = "text/javascript";
+    script.async = true;
+    script.onload = () => setScriptLoaded(true);
+    document.body.appendChild(script);
+  };
+
+  useEffect(() => {
+    addPaypall();
+  }, []);
 
   const router = useRouter();
   const {
@@ -45,25 +65,38 @@ const Checkout = ({ details }: { details: any }) => {
         <Title level={2}>PAYMENT</Title>
       </Divider>
       <Row justify="space-around">
-        <Col span={12}>{props.email}</Col>
+        <Col span={12}>
+          {scriptLoaded ? (
+            <PayPalButton
+              amount={sum}
+              onSuccess={(details: any) => {
+                alert(
+                  "Transaction completed by " + details.payer.name.given_name
+                );
+              }}
+            />
+          ) : (
+            <span>loading...</span>
+          )}
+        </Col>
         <Col span={6}>
           <Title level={4}>Order Summary</Title>
           <Divider orientation="left" plain className="divider"></Divider>
           <div className={styles.wrapper1}>
             <Text>Cart Subtotal</Text>
-            <Text>{`${details.items[0].fields.price}£`}</Text>
+            <Text>{`${details.items[0].fields.price} £`}</Text>
           </div>
           <div className={styles.wrapper1}>
             <Text>Shipping</Text>
-            <Text>11.00£</Text>
+            <Text>11.00 £</Text>
           </div>
           <div className={styles.wrapper1}>
             <Text>Order Total Excl. Tax</Text>
-            <Text>{sum}</Text>
+            <Text>{`${sum} £`}</Text>
           </div>
           <div className={styles.wrapper1}>
-            <Text>Order Total Excl. Tax</Text>
-            <Text>{sum}</Text>
+            <Text>Order Total Incl. Tax</Text>
+            <Text>{`${sum} £`}</Text>
           </div>
           <br />
           <Title level={4}>Item</Title>
@@ -85,7 +118,7 @@ const Checkout = ({ details }: { details: any }) => {
               <span>{details.items[0].fields.player}</span>
             </div>
             <div>
-              <Text>{`${details.items[0].fields.price}£`}</Text>
+              <Text>{`${details.items[0].fields.price} £`}</Text>
             </div>
           </div>
           <br />
