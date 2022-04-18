@@ -1,3 +1,8 @@
+import {
+  EditOutlined,
+  EllipsisOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
 import { Card } from "antd";
 import Typography from "antd/lib/typography";
 import Image from "next/image";
@@ -19,15 +24,16 @@ const CardShirt = ({ card }: { card: ICardShirt }) => {
   return (
     <Link href={card.id ? `/products/${card.id}` : "#"} passHref>
       <Card
+        actions={[
+          <SettingOutlined key="setting" />,
+          <EditOutlined key="edit" />,
+          <EllipsisOutlined key="ellipsis" />,
+        ]}
         hoverable
         style={{ width: 270 }}
         cover={
-          <Image
-            src={"https:" + card.image}
-            alt=" car image"
-            width={500}
-            height={500}
-          />
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={card.image} alt="car image" width={300} height={300} />
         }
       >
         <Meta title={card.description} description={`${card.price} £ `} />

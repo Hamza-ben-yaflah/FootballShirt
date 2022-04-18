@@ -22,7 +22,7 @@ const BuyForm = ({ details }: { details: any }) => {
     const { email, firstname, lastname, country, streetAdress, city, phone } =
       values;
     Router.push({
-      pathname: `/Checkout/${details.items[0].sys.id}`,
+      pathname: `/Checkout/${details.permalink}`,
       query: { email, firstname, lastname, country, streetAdress, city, phone },
     });
   };

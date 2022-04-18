@@ -1,5 +1,5 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import { Menu } from "antd";
+import { Menu, Badge } from "antd";
 import Search from "antd/lib/input/Search";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,7 +29,9 @@ const NavBar = () => {
             className={styles.img}
           />
         </Link>
-        <ShoppingCartOutlined style={{ color: "white", fontSize: "30px" }} />
+        <Badge count={5} title="items">
+          <ShoppingCartOutlined style={{ color: "white", fontSize: "30px" }} />
+        </Badge>
       </div>
       <section className={styles.section}>
         <Menu className={styles.menu} theme="dark">

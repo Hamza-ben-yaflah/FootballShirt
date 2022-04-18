@@ -4,20 +4,39 @@ import { client } from "../../client/contentful";
 import BuyForm from "../../Components/BuyForm/BuyForm";
 import Card from "../../Components/Card/Card";
 import styles from "./buyPrecess.module.css";
+import commerce from "../../lib/commerce";
 
-export async function getServerSideProps(context: any) {
-  const { params } = context;
-  const res = await client.getEntries({
-    content_type: "cardShirt",
-    "sys.id": params.buyP,
-  });
+export async function getStaticPaths() {
+  const { data: products } = await commerce.products.list();
+
   return {
-    props: { details: res },
+    paths: products.map((product: any) => ({
+      params: {
+        permalink: product.permalink,
+      },
+    })),
+    fallback: false,
   };
 }
 
-const buyProcess = ({ details }: { details: any }) => {
-  console.log(details);
+export async function getStaticProps({ params }: any) {
+  const { permalink } = params;
+
+  const product = await commerce.products.retrieve(permalink, {
+    type: "permalink",
+  });
+
+  return {
+    props: {
+      product,
+    },
+
+    revalidate: 60,
+  };
+}
+
+const buyProcess = ({ product }: { product: any }) => {
+  console.log(product);
 
   return (
     <>
@@ -27,16 +46,16 @@ const buyProcess = ({ details }: { details: any }) => {
       <Row justify="space-around">
         <Col span={12}>
           <div className={styles.container}>
-            <BuyForm details={details} />
+            <BuyForm details={product} />
           </div>
         </Col>
         <Col span={12}>
           <Card
             card={{
               id: "",
-              image: details.items[0].fields.shirtImage.fields.file.url,
-              price: details.items[0].fields.price,
-              description: details.items[0].fields.description,
+              image: product.image.url,
+              price: product.price.formatted_with_code,
+              description: product.description,
             }}
           />
         </Col>

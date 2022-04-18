@@ -7,15 +7,34 @@ import { client } from "../../client/contentful";
 import styles from "./Checkout.module.css";
 import { PayPalButton } from "react-paypal-button-v2";
 import { useRouter } from "next/router";
+import commerce from "../../lib/commerce";
 
-export async function getServerSideProps(context: any) {
-  const { params } = context;
-  const res = await client.getEntries({
-    content_type: "cardShirt",
-    "sys.id": params.chid,
-  });
+export async function getStaticPaths() {
+  const { data: products } = await commerce.products.list();
+
   return {
-    props: { details: res },
+    paths: products.map((product: any) => ({
+      params: {
+        permalink: product.permalink,
+      },
+    })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }: any) {
+  const { permalink } = params;
+
+  const product = await commerce.products.retrieve(permalink, {
+    type: "permalink",
+  });
+
+  return {
+    props: {
+      product,
+    },
+
+    revalidate: 60,
   };
 }
 

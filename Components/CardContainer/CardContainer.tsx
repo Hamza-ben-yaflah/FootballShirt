@@ -6,14 +6,14 @@ const CardContaier = ({ data }: any) => {
 
   return (
     <div className={styles.cardContainer}>
-      {data.data.map((card: any) => (
+      {data.products.map((card: any) => (
         <Card
-          key={card.sys.id}
+          key={card.id}
           card={{
-            id: card.sys.id,
-            image: card.fields.shirtImage.fields.file.url,
-            price: card.fields.price,
-            description: card.fields.description,
+            id: card.permalink,
+            image: card.image.url,
+            price: card.price.formatted_with_code,
+            description: card.description,
           }}
         />
       ))}

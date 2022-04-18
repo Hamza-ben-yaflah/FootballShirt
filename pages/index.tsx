@@ -3,19 +3,30 @@ import Title from "antd/lib/typography/Title";
 import { client } from "../client/contentful";
 import CardContainer from "../Components/CardContainer/CardContainer";
 import Slider from "../Components/Slider/Slider";
+import React, { useState } from "react";
+import commerce from "../lib/commerce";
 
+// export async function getStaticProps() {
+//   const res = await client.getEntries({ content_type: "cardShirt" });
+
+//   return {
+//     props: {
+//       data: res.items,
+//     },
+//   };
+// }
 export async function getStaticProps() {
-  const res = await client.getEntries({ content_type: "cardShirt" });
+  const { data: products } = await commerce.products.list();
 
   return {
     props: {
-      data: res.items,
+      products,
     },
   };
 }
 
-const Home = (data: any) => {
-  console.log(data);
+const Home = (products: any) => {
+  console.log(products);
 
   return (
     <>
@@ -23,7 +34,7 @@ const Home = (data: any) => {
       <Divider orientation="left" plain className="divider">
         <Title level={1}>SHIRTS</Title>
       </Divider>
-      <CardContainer data={data} />;
+      <CardContainer data={products} />;
     </>
   );
 };
