@@ -5,10 +5,23 @@ import Image from "next/image";
 import Link from "next/link";
 import vintage from "../../public/vintage.jpg";
 import styles from "./NavBar.module.css";
-
-import React, { useRef } from "react";
+import commerce from "../../lib/commerce";
+import { useCartSatet } from "../../context/cart";
+import { useCartDispatch } from "../../context/cart";
+import React, { useEffect, useRef, useState } from "react";
+import CartModal from "../CartModal/CartModal";
+import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 
 const NavBar = () => {
+  const products = useCartSatet();
+
+  const [visible, setVisible] = useState(false);
+
+  const showModal = () => {
+    setVisible(true);
+    console.log(visible);
+  };
+
   return (
     <div
       style={{
@@ -29,8 +42,12 @@ const NavBar = () => {
             className={styles.img}
           />
         </Link>
-        <Badge count={5} title="items">
-          <ShoppingCartOutlined style={{ color: "white", fontSize: "30px" }} />
+
+        <Badge count={products.total_items} title="items">
+          <ShoppingCartOutlined
+            onClick={showModal}
+            style={{ color: "white", fontSize: "30px" }}
+          />
         </Badge>
       </div>
       <section className={styles.section}>
@@ -52,6 +69,13 @@ const NavBar = () => {
           </Menu.Item>
         </Menu>
       </section>
+      {visible ? (
+        <CartModal
+          visible={visible}
+          handlerCancel={() => setVisible(false)}
+          products={products}
+        />
+      ) : null}
     </div>
   );
 };

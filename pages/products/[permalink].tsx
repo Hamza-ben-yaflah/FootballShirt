@@ -6,6 +6,9 @@ import Link from "next/link";
 import { client } from "../../client/contentful";
 import styles from "./pid.module.css";
 import commerce from "../../lib/commerce";
+import { useCartDispatch } from "../../context/cart";
+
+import { useEffect, useState } from "react";
 const { Text, Title } = Typography;
 
 export async function getStaticPaths() {
@@ -31,13 +34,20 @@ export async function getStaticProps({ params }: any) {
     props: {
       product,
     },
-
-    revalidate: 60,
   };
 }
 
 const ShirtDetails = ({ product }: { product: any }) => {
   console.log(product);
+  const { setCart } = useCartDispatch();
+  const [disable, setDisable] = useState(false);
+
+  const addToCart = () => {
+    commerce.cart.add(product.id).then(({ cart }: any) => {
+      setCart(cart);
+      setDisable(true);
+    });
+  };
 
   return (
     <div className={styles.container}>
@@ -65,7 +75,13 @@ const ShirtDetails = ({ product }: { product: any }) => {
           <Title level={4}>Player :</Title>
           <span className={styles.span1}>{product.name}</span>
           <div className={styles.btn}>
-            <Button type="primary" size="large" shape="round">
+            <Button
+              type="primary"
+              size="large"
+              shape="round"
+              onClick={addToCart}
+              disabled={disable}
+            >
               ADD TO CART
             </Button>
             <Link href={`/BuyProcess/${product.permalink}`} passHref>

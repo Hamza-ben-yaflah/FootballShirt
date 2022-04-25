@@ -6,15 +6,6 @@ import Slider from "../Components/Slider/Slider";
 import React, { useState } from "react";
 import commerce from "../lib/commerce";
 
-// export async function getStaticProps() {
-//   const res = await client.getEntries({ content_type: "cardShirt" });
-
-//   return {
-//     props: {
-//       data: res.items,
-//     },
-//   };
-// }
 export async function getStaticProps() {
   const { data: products } = await commerce.products.list();
 

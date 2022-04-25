@@ -21,10 +21,31 @@ const BuyForm = ({ details }: { details: any }) => {
   const onFinish = (values: dataProps) => {
     const { email, firstname, lastname, country, streetAdress, city, phone } =
       values;
-    Router.push({
-      pathname: `/Checkout/${details.permalink}`,
-      query: { email, firstname, lastname, country, streetAdress, city, phone },
-    });
+    details
+      ? Router.push({
+          pathname: `/Checkout/${details.permalink}`,
+          query: {
+            email,
+            firstname,
+            lastname,
+            country,
+            streetAdress,
+            city,
+            phone,
+          },
+        })
+      : Router.push({
+          pathname: `/CheckoutCart/CheckoutCart`,
+          query: {
+            email,
+            firstname,
+            lastname,
+            country,
+            streetAdress,
+            city,
+            phone,
+          },
+        });
   };
 
   return (

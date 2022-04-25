@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Col, Divider, Row } from "antd";
 import Title from "antd/lib/typography/Title";
 import Text from "antd/lib/typography/Text";
@@ -33,15 +34,15 @@ export async function getStaticProps({ params }: any) {
     props: {
       product,
     },
-
-    revalidate: 60,
   };
 }
 
-const Checkout = ({ details }: { details: any }) => {
+const Checkout = ({ product }: { product: any }) => {
+  console.log();
+
   const shipping = 11;
-  const sum = shipping + details.items[0].fields.price;
-  console.log(details);
+  const sum = shipping + product.price.raw;
+  console.log(product);
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
   const addPaypall = () => {
@@ -103,7 +104,7 @@ const Checkout = ({ details }: { details: any }) => {
           <Divider orientation="left" plain className="divider"></Divider>
           <div className={styles.wrapper1}>
             <Text>Cart Subtotal</Text>
-            <Text>{`${details.items[0].fields.price} £`}</Text>
+            <Text>{`${product.price.formatted_with_symbol} £`}</Text>
           </div>
           <div className={styles.wrapper1}>
             <Text>Shipping</Text>
@@ -122,22 +123,20 @@ const Checkout = ({ details }: { details: any }) => {
           <Divider orientation="left" plain className="divider"></Divider>
           <div className={styles.wrapper2}>
             <div>
-              <Image
+              <img
                 width={150}
                 height={150}
                 alt="shirt img"
-                src={
-                  "https:" + details.items[0].fields.shirtImage.fields.file.url
-                }
+                src={product.image.url}
               />
             </div>
             <div className={styles.itemWrapper}>
-              <span>{details.items[0].fields.description}</span>
-              <span>{details.items[0].fields.size}</span>
-              <span>{details.items[0].fields.player}</span>
+              <span>{product.description}</span>
+              <span>{product.size}</span>
+              <span>{product.name}</span>
             </div>
             <div>
-              <Text>{`${details.items[0].fields.price} £`}</Text>
+              <Text>{`${product.price.formatted_with_symbol} £`}</Text>
             </div>
           </div>
           <br />
