@@ -17,15 +17,13 @@ const Cart = () => {
         <Title level={2}>SHIPPING ADDRESS</Title>
       </Divider>
       <Row justify="space-around">
-        <Col span={12}>
-          <Col span={12}>
-            <div className={styles.container}>
-              <BuyForm details="" />
-            </div>
-          </Col>
+        <Col lg={12} sm={12}>
+          <div className={styles.container}>
+            <BuyForm details="" />
+          </div>
         </Col>
 
-        <Col span={6}>
+        <Col lg={12} sm={12}>
           {obj.line_items.map((item: any) => (
             <CartItem key={item.id} item={item} />
           ))}

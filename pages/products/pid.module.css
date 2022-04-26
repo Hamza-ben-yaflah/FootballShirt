@@ -1,8 +1,22 @@
 .container {
   overflow: hidden;
 }
+
+.imageContainer {
+  display: flex;
+  flex-direction: row;
+}
+.size {
+  display: flex;
+  flex-direction: column;
+}
+.price {
+  display: flex;
+  flex-direction: column;
+}
+
 .btn {
-  width: 40%;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -12,7 +26,9 @@
 @media (max-width: 768px) {
   .btn {
     height: 20%;
-    flex-direction: row;
+  }
+  .imageContainer {
+    flex-wrap: wrap;
   }
 }
 

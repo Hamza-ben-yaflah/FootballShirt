@@ -1,18 +1,22 @@
 .wrapper1 {
   display: flex;
   justify-content: space-between;
+  font-size: 20px;
 }
 
 .wrapper2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  font-size: 20px;
 }
 .itemWrapper {
   display: flex;
   flex-direction: column;
+  font-size: 20px;
 }
 .shippWrapper {
   display: flex;
   flex-direction: column;
+  font-size: 20px;
 }

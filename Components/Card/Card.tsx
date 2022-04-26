@@ -24,11 +24,6 @@ const CardShirt = ({ card }: { card: ICardShirt }) => {
   return (
     <Link href={card.id ? `/products/${card.id}` : "#"} passHref>
       <Card
-        actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
-        ]}
         hoverable
         style={{ width: 270 }}
         cover={
@@ -36,7 +31,7 @@ const CardShirt = ({ card }: { card: ICardShirt }) => {
           <img src={card.image} alt="car image" width={300} height={300} />
         }
       >
-        <Meta title={card.description} description={`${card.price} £ `} />
+        <Meta title={card.description} description={card.price} />
       </Card>
     </Link>
   );

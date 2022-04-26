@@ -51,41 +51,52 @@ const ShirtDetails = ({ product }: { product: any }) => {
 
   return (
     <div className={styles.container}>
-      <Row justify="center">
-        <Col push={0} lg={12}>
-          <img
-            width={600}
-            height={600}
-            alt="shirt img"
-            src={product.image.url}
-          />
+      <Row wrap>
+        <Col lg={18}>
+          <div className={styles.imageContainer}>
+            <img
+              width={400}
+              height={400}
+              alt="shirt img"
+              src={product.assets[0].url}
+            />
+            <img
+              width={400}
+              height={400}
+              alt="shirt img"
+              src={product.assets[1].url}
+            />
+          </div>
         </Col>
-        <Col lg={12}>
-          <span
-            dangerouslySetInnerHTML={{ __html: product.description }}
-            className={styles.span}
-          />
+        <Col lg={6}>
+          <span style={{ fontSize: "30px" }}>{product.name}</span>
+          <br />
+          <br />
+          <div className={styles.size}>
+            <Title level={4}>Size :</Title>
+            <span className={styles.span1}>
+              {product.variant_groups[0].options[0].name}
+            </span>
+          </div>
+          <br />
+          <div className={styles.price}>
+            <Title level={4}>Price :</Title>
+            <span className={styles.span1}>
+              {product.price.formatted_with_symbol}
+            </span>
+          </div>
 
-          <Title level={4}>Size :</Title>
-          <span className={styles.span1}>
-            {product.price.formatted_with_symbol}
-          </span>
-          <Title level={4}>Price :</Title>
-          <span className={styles.span1}>{`£ ${product.name}`}</span>
-          <Title level={4}>Player :</Title>
-          <span className={styles.span1}>{product.name}</span>
           <div className={styles.btn}>
             <Button
               type="primary"
               size="large"
-              shape="round"
               onClick={addToCart}
               disabled={disable}
             >
               ADD TO CART
             </Button>
             <Link href={`/BuyProcess/${product.permalink}`} passHref>
-              <Button type="primary" size="large" shape="round">
+              <Button type="primary" size="large" style={{ marginTop: 20 }}>
                 <a>BUY NOW</a>
               </Button>
             </Link>

@@ -69,19 +69,19 @@ const CheckoutCart = () => {
         <Divider orientation="left" plain className="divider"></Divider>
         <div className={styles.wrapper1}>
           <Text>Cart Subtotal</Text>
-          <Text>{`${products.subtotal.raw} £`}</Text>
+          <Text strong>{`${products.subtotal.raw} £`}</Text>
         </div>
         <div className={styles.wrapper1}>
           <Text>Shipping</Text>
-          <Text>11.00 £</Text>
+          <Text strong>11.00 £</Text>
         </div>
         <div className={styles.wrapper1}>
           <Text>Order Total Excl. Tax</Text>
-          <Text>{`${sum} £`}</Text>
+          <Text strong>{`${sum} £`}</Text>
         </div>
         <div className={styles.wrapper1}>
           <Text>Order Total Incl. Tax</Text>
-          <Text>{`${sum} £`}</Text>
+          <Text strong>{`${sum} £`}</Text>
         </div>
         <br />
         <Title level={4}>Items</Title>
@@ -95,11 +95,11 @@ const CheckoutCart = () => {
         <Title level={4}>Ship To</Title>
         <Divider orientation="left" plain className="divider"></Divider>
         <div className={styles.shippWrapper}>
-          <Text>{props.email}</Text>
-          <Text>{props.firstname}</Text>
-          <Text>{props.lastname}</Text>
-          <Text>{props.country}</Text>
-          <Text>{props.city}</Text>
+          <Text>{`Email :  ${props.email}`}</Text>
+          <Text>{`First Name :  ${props.firstname}`}</Text>
+          <Text>{`Last Name :  ${props.lastname}`}</Text>
+          <Text>{`Country : ${props.country}`}</Text>
+          <Text>{`City : ${props.city}`}</Text>
         </div>
       </Col>
     </Row>

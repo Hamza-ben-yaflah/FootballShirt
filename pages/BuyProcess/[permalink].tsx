@@ -41,7 +41,7 @@ const buyProcess = ({ product }: { product: any }) => {
       <Divider orientation="left" plain className="divider">
         <Title level={2}>SHIPPING ADDRESS</Title>
       </Divider>
-      <Row justify="space-around">
+      <Row justify="space-around" wrap>
         <Col span={12}>
           <div className={styles.container}>
             <BuyForm details={product} />
@@ -52,7 +52,7 @@ const buyProcess = ({ product }: { product: any }) => {
             card={{
               id: "",
               image: product.image.url,
-              price: product.price.formatted_with_code,
+              price: product.price.formatted_with_symbol,
               description: product.description,
             }}
           />

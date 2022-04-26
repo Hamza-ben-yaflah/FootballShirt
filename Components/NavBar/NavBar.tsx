@@ -63,7 +63,7 @@ const NavBar = () => {
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link href={"/"} passHref>
+            <Link href={"/MatchWorn/matchworn"} passHref>
               <a className={styles.link}>MatchWorn</a>
             </Link>
           </Menu.Item>

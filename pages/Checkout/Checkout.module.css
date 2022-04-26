@@ -1,11 +1,13 @@
 .wrapper1 {
   display: flex;
   justify-content: space-between;
+  font-size: 20px;
 }
 
 .wrapper2 {
   display: flex;
   justify-content: space-between;
+  font-size: 20px;
 }
 .itemWrapper {
   display: flex;
@@ -14,4 +16,5 @@
 .shippWrapper {
   display: flex;
   flex-direction: column;
+  font-size: 20px;
 }

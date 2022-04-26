@@ -104,7 +104,7 @@ const Checkout = ({ product }: { product: any }) => {
           <Divider orientation="left" plain className="divider"></Divider>
           <div className={styles.wrapper1}>
             <Text>Cart Subtotal</Text>
-            <Text>{`${product.price.formatted_with_symbol} £`}</Text>
+            <Text>{product.price.formatted_with_symbol}</Text>
           </div>
           <div className={styles.wrapper1}>
             <Text>Shipping</Text>
@@ -131,23 +131,21 @@ const Checkout = ({ product }: { product: any }) => {
               />
             </div>
             <div className={styles.itemWrapper}>
-              <span>{product.description}</span>
-              <span>{product.size}</span>
               <span>{product.name}</span>
-            </div>
-            <div>
-              <Text>{`${product.price.formatted_with_symbol} £`}</Text>
+              <span>{product.variant_groups[0].options[0].name}</span>
+
+              <Text>{product.price.formatted_with_symbol}</Text>
             </div>
           </div>
           <br />
           <Title level={4}>Ship To</Title>
           <Divider orientation="left" plain className="divider"></Divider>
           <div className={styles.shippWrapper}>
-            <Text>{props.email}</Text>
-            <Text>{props.firstname}</Text>
-            <Text>{props.lastname}</Text>
-            <Text>{props.country}</Text>
-            <Text>{props.city}</Text>
+            <Text>{`Email :  ${props.email}`}</Text>
+            <Text>{`First Name :  ${props.firstname}`}</Text>
+            <Text>{`Last Name :  ${props.lastname}`}</Text>
+            <Text>{`Country : ${props.country}`}</Text>
+            <Text>{`City : ${props.city}`}</Text>
           </div>
         </Col>
       </Row>
