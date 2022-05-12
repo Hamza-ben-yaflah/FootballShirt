@@ -9,6 +9,7 @@ import styles from "./Checkout.module.css";
 import { PayPalButton } from "react-paypal-button-v2";
 import { useRouter } from "next/router";
 import commerce from "../../lib/commerce";
+import emailjs from "emailjs-com";
 
 export async function getStaticPaths() {
   const { data: products } = await commerce.products.list();
@@ -90,6 +91,29 @@ const Checkout = ({ product }: { product: any }) => {
             <PayPalButton
               amount={sum}
               onSuccess={(details: any) => {
+                emailjs
+                  .send(
+                    "service_4fxlf8p",
+                    "template_kspebic",
+                    {
+                      firstname: firstname,
+                      lastname: lastname,
+                      email: email,
+                      phone: phone,
+                      country: country,
+                      streetAdress: streetAdress,
+                      city: city,
+                      shirtName: product.name,
+                      price: product.price.formatted_with_symbol,
+                    },
+                    "iDjDlkC3NKipnLh_h"
+                  )
+                  .then((result) => {
+                    console.log(result);
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
                 alert(
                   "Transaction completed by " + details.payer.name.given_name
                 );

@@ -7,6 +7,7 @@ import { PayPalButton } from "react-paypal-button-v2";
 import styles from "./CheckoutCart.module.css";
 import { useRouter } from "next/router";
 import CartItem from "../../Components/CartItem/CartItem";
+import emailjs from "emailjs-com";
 
 const CheckoutCart = () => {
   const [scriptLoaded, setScriptLoaded] = useState(false);
@@ -46,6 +47,11 @@ const CheckoutCart = () => {
   };
 
   const products = useCartSatet();
+  console.log(products, "hello");
+  const ShirtsName = products.line_items
+    .map((item: any) => `${item.name} `)
+    .toString();
+
   const sum = products.subtotal.raw + 11;
   return (
     <Row justify="space-around">
@@ -54,6 +60,29 @@ const CheckoutCart = () => {
           <PayPalButton
             amount={sum}
             onSuccess={(details: any) => {
+              emailjs
+                .send(
+                  "service_4fxlf8p",
+                  "template_kspebic",
+                  {
+                    firstname: firstname,
+                    lastname: lastname,
+                    email: email,
+                    phone: phone,
+                    country: country,
+                    streetAdress: streetAdress,
+                    city: city,
+                    shirtName: ShirtsName,
+                    price: products.subtotal.formatted_with_symbol,
+                  },
+                  "iDjDlkC3NKipnLh_h"
+                )
+                .then((result) => {
+                  console.log(result);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
               alert(
                 "Transaction completed by " + details.payer.name.given_name
               );

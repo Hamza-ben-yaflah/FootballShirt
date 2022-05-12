@@ -1,3 +1,5 @@
+import { Divider } from "antd";
+import Title from "antd/lib/typography/Title";
 import React from "react";
 import Card from "../../Components/Card/Card";
 import CardContainer from "../../Components/CardContainer/CardContainer";
@@ -15,9 +17,12 @@ export async function getStaticProps() {
 
 const MatchWorn = (products: any) => {
   return (
-    <div>
+    <>
+      <Divider orientation="left" plain className="divider">
+        <Title level={1}>MATCHWORN</Title>
+      </Divider>
       <CardContainer data={products} categorie="matchworn" />
-    </div>
+    </>
   );
 };
 

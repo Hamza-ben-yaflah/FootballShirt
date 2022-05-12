@@ -53,7 +53,7 @@ const buyProcess = ({ product }: { product: any }) => {
               id: "",
               image: product.image.url,
               price: product.price.formatted_with_symbol,
-              description: product.description,
+              description: product.name,
             }}
           />
         </Col>

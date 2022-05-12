@@ -1,6 +1,13 @@
 .container {
   overflow: hidden;
 }
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 400px;
+}
 
 .imageContainer {
   display: flex;
@@ -11,8 +18,11 @@
   flex-direction: column;
 }
 .price {
+  width: 15%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .btn {
@@ -37,4 +47,9 @@
 }
 .span1 {
   font-size: 25px;
+}
+.col2Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

@@ -25,7 +25,6 @@ const Home = (products: any) => {
       <Divider orientation="left" plain className="divider">
         <Title level={1}>SHIRTS</Title>
       </Divider>
-
       <CardContainer data={products} categorie="newproduct" />
     </>
   );

@@ -18,7 +18,7 @@ interface ICardShirt {
 const { Meta } = Card;
 
 const { Text } = Typography;
-const CardShirt = ({ card }: { card: ICardShirt }) => {
+const CardShirt = ({ card }: { card: any }) => {
   console.log(card);
 
   return (

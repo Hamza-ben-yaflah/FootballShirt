@@ -1,6 +1,5 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Menu, Badge } from "antd";
-import Search from "antd/lib/input/Search";
 import Image from "next/image";
 import Link from "next/link";
 import vintage from "../../public/vintage.jpg";
@@ -10,10 +9,63 @@ import { useCartSatet } from "../../context/cart";
 import { useCartDispatch } from "../../context/cart";
 import React, { useEffect, useRef, useState } from "react";
 import CartModal from "../CartModal/CartModal";
-import { loadGetInitialProps } from "next/dist/shared/lib/utils";
+import { connectSearchBox } from "react-instantsearch-dom";
+import SearchBox from "../SearchBox/SearchBox";
+
+import { InstantSearch, Hits, Highlight } from "react-instantsearch-dom";
+import algoliasearch from "algoliasearch";
+
+import { connectStateResults } from "react-instantsearch-dom";
+
+const searchClient = algoliasearch(
+  "MK5PVV9FL2",
+  "5f7438a9862dba119cf7ab68bc725827"
+);
+const CustomSearchBox = connectSearchBox(SearchBox);
+
+const Product = ({ hit }: any) => {
+  return (
+    <div style={{ marginTop: "10px", backgroundColor: "white" }}>
+      <span
+        className="hit-name"
+        style={{ color: "black", backgroundColor: "white" }}
+      >
+        <a
+          href={`/products/${hit.permalink}`}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            fontSize: "20px",
+          }}
+        >
+          <Highlight attribute="name" hit={hit} />
+          <img src={hit.image.url} width="80" height="80" />
+        </a>
+      </span>
+    </div>
+  );
+};
+
+const Results = connectStateResults(({ searchState }: any) =>
+  searchState && searchState.query ? <Hits hitComponent={Product} /> : null
+);
+
+const Search = () => {
+  return (
+    <div>
+      <CustomSearchBox
+        translations={{
+          placeholder: "Search ",
+        }}
+      />
+      <Results />
+    </div>
+  );
+};
 
 const NavBar = () => {
   const products = useCartSatet();
+  console.log(products);
 
   const [visible, setVisible] = useState(false);
 
@@ -43,12 +95,24 @@ const NavBar = () => {
           />
         </Link>
 
-        <Badge count={products.total_items} title="items">
-          <ShoppingCartOutlined
-            onClick={showModal}
-            style={{ color: "white", fontSize: "30px" }}
-          />
-        </Badge>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {" "}
+          <InstantSearch indexName="products" searchClient={searchClient}>
+            <Search />
+          </InstantSearch>
+          <Badge count={products.total_items} title="items">
+            <ShoppingCartOutlined
+              onClick={showModal}
+              style={{ color: "white", fontSize: "30px" }}
+            />
+          </Badge>
+        </div>
       </div>
       <section className={styles.section}>
         <Menu className={styles.menu} theme="dark">

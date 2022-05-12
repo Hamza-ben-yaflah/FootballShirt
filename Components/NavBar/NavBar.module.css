@@ -3,7 +3,12 @@
   justify-content: space-around;
   align-items: center;
 }
-
+.res {
+  background-color: white;
+}
+.wra .ais-SearchBox-input {
+  width: 50%;
+}
 .icon {
   margin-left: auto;
 }
