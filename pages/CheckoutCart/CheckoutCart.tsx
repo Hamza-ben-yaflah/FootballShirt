@@ -10,7 +10,84 @@ import CartItem from "../../Components/CartItem/CartItem";
 import emailjs from "emailjs-com";
 
 const CheckoutCart = () => {
+  const router = useRouter();
+  const {
+    query: { email, firstname, lastname, country, streetAdress, city, phone },
+  } = router;
+
+  const props = {
+    email,
+    firstname,
+    lastname,
+    country,
+    streetAdress,
+    city,
+    phone,
+  };
+  const products = useCartSatet();
   const [scriptLoaded, setScriptLoaded] = useState(false);
+
+  const findCountry = (country: string, total_items: number) => {
+    const europeanCountries = [
+      "Albania",
+      "Andorra",
+      "Armenia",
+      "Austria",
+      "Azerbaijan",
+      "Belarus",
+      "Belgium",
+      "Bosnia and Herzegovina",
+      "Bulgaria",
+      "Croatia",
+      "Cyprus",
+      "Czech Republic",
+      "Denmark",
+      "Estonia",
+      "Finland",
+      "France",
+      "Georgia",
+      "Germany",
+      "Greece",
+      "Hungary",
+      "Iceland",
+      "Ireland",
+      "Italy",
+      "Kosovo",
+      "Latvia",
+      "Liechtenstein",
+      "Lithuania",
+      "Luxembourg",
+      "Macedonia",
+      "Malta",
+      "Moldova",
+      "Monaco",
+      "Montenegro",
+      "The Netherlands",
+      "Norway",
+      "Poland",
+      "Portugal",
+      "Romania",
+      "Russia",
+      "San Marino",
+      "Serbia",
+      "Slovakia",
+      "Slovenia",
+      "Spain",
+      "Sweden",
+      "Switzerland",
+      "Turkey",
+      "Ukraine",
+      "United Kingdom",
+      "Vatican City",
+    ];
+
+    let shipp = 0;
+    const includeCountry = europeanCountries.includes(country);
+    includeCountry
+      ? (shipp = 11 + (total_items * 2 - 2))
+      : (shipp = 14.5 + (total_items * 3 - 3));
+    return shipp;
+  };
 
   const addPaypall = () => {
     if (window.paypal) {
@@ -31,28 +108,14 @@ const CheckoutCart = () => {
     addPaypall();
   }, []);
 
-  const router = useRouter();
-  const {
-    query: { email, firstname, lastname, country, streetAdress, city, phone },
-  } = router;
-
-  const props = {
-    email,
-    firstname,
-    lastname,
-    country,
-    streetAdress,
-    city,
-    phone,
-  };
-
-  const products = useCartSatet();
   console.log(products, "hello");
   const ShirtsName = products.line_items
     .map((item: any) => `${item.name} `)
     .toString();
 
-  const sum = products.subtotal.raw + 11;
+  const sum =
+    products.subtotal.raw +
+    findCountry(country as string, products.total_items);
   return (
     <Row justify="space-around">
       <Col span={12}>
@@ -102,7 +165,10 @@ const CheckoutCart = () => {
         </div>
         <div className={styles.wrapper1}>
           <Text>Shipping</Text>
-          <Text strong>11.00 £</Text>
+          <Text strong>{`${findCountry(
+            country as string,
+            products.total_items
+          )} £`}</Text>
         </div>
         <div className={styles.wrapper1}>
           <Text>Order Total Excl. Tax</Text>

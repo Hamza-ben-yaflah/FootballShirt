@@ -38,11 +38,83 @@ export async function getStaticProps({ params }: any) {
   };
 }
 
-const Checkout = ({ product }: { product: any }) => {
-  console.log();
+const findCountry = (country: string) => {
+  const europeanCountries = [
+    "Albania",
+    "Andorra",
+    "Armenia",
+    "Austria",
+    "Azerbaijan",
+    "Belarus",
+    "Belgium",
+    "Bosnia and Herzegovina",
+    "Bulgaria",
+    "Croatia",
+    "Cyprus",
+    "Czech Republic",
+    "Denmark",
+    "Estonia",
+    "Finland",
+    "France",
+    "Georgia",
+    "Germany",
+    "Greece",
+    "Hungary",
+    "Iceland",
+    "Ireland",
+    "Italy",
+    "Kosovo",
+    "Latvia",
+    "Liechtenstein",
+    "Lithuania",
+    "Luxembourg",
+    "Macedonia",
+    "Malta",
+    "Moldova",
+    "Monaco",
+    "Montenegro",
+    "The Netherlands",
+    "Norway",
+    "Poland",
+    "Portugal",
+    "Romania",
+    "Russia",
+    "San Marino",
+    "Serbia",
+    "Slovakia",
+    "Slovenia",
+    "Spain",
+    "Sweden",
+    "Switzerland",
+    "Turkey",
+    "Ukraine",
+    "United Kingdom",
+    "Vatican City",
+  ];
 
-  const shipping = 11;
-  const sum = shipping + product.price.raw;
+  let shipp = 0;
+  const includeCountry = europeanCountries.includes(country);
+  includeCountry ? (shipp = 11) : (shipp = 14.5);
+  return shipp;
+};
+
+const Checkout = ({ product }: { product: any }) => {
+  const router = useRouter();
+  const {
+    query: { email, firstname, lastname, country, streetAdress, city, phone },
+  } = router;
+
+  const props = {
+    email,
+    firstname,
+    lastname,
+    country,
+    streetAdress,
+    city,
+    phone,
+  };
+
+  const sum = country && findCountry(country as string) + product.price.raw;
   console.log(product);
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
@@ -64,21 +136,6 @@ const Checkout = ({ product }: { product: any }) => {
   useEffect(() => {
     addPaypall();
   }, []);
-
-  const router = useRouter();
-  const {
-    query: { email, firstname, lastname, country, streetAdress, city, phone },
-  } = router;
-
-  const props = {
-    email,
-    firstname,
-    lastname,
-    country,
-    streetAdress,
-    city,
-    phone,
-  };
 
   return (
     <>
@@ -132,7 +189,7 @@ const Checkout = ({ product }: { product: any }) => {
           </div>
           <div className={styles.wrapper1}>
             <Text>Shipping</Text>
-            <Text>11.00 £</Text>
+            <Text>{`${findCountry(country as string)} £`}</Text>
           </div>
           <div className={styles.wrapper1}>
             <Text>Order Total Excl. Tax</Text>
