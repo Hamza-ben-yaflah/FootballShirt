@@ -4,6 +4,7 @@ import React from "react";
 import Card from "../../Components/Card/Card";
 import CardContainer from "../../Components/CardContainer/CardContainer";
 import commerce from "../../lib/commerce";
+import styles from "./matchworn.module.css";
 
 export async function getStaticProps() {
   const { data: products } = await commerce.products.list();
@@ -17,12 +18,9 @@ export async function getStaticProps() {
 
 const MatchWorn = (products: any) => {
   return (
-    <>
-      <Divider orientation="left" plain className="divider">
-        <Title level={1}>MATCHWORN</Title>
-      </Divider>
+    <div className={styles.container}>
       <CardContainer data={products} categorie="matchworn" />
-    </>
+    </div>
   );
 };
 

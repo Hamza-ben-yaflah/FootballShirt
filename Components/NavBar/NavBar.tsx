@@ -127,7 +127,7 @@ const NavBar = () => {
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link href={"/MatchWorn/matchworn"} passHref>
+            <Link href={"/MatchWorn/Matchworn"} passHref>
               <a className={styles.link}>MatchWorn</a>
             </Link>
           </Menu.Item>

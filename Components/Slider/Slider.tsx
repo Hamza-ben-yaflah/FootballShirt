@@ -55,7 +55,7 @@ const Slider = () => {
                   height="100%"
                   alt="silderImage"
                 />
-                <a href="/MatchWorn/matchworn">
+                <a href="/MatchWorn/Matchworn">
                   <div className={styles.shopButton}>
                     <button className={styles.button}>
                       <span className={styles.span}>Shop Now</span>
