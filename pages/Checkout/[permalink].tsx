@@ -142,8 +142,8 @@ const Checkout = ({ product }: { product: any }) => {
       <Divider orientation="left" plain className="divider">
         <Title level={2}>PAYMENT</Title>
       </Divider>
-      <Row justify="space-around">
-        <Col span={12}>
+      <Row justify="space-around" wrap>
+        <Col lg={12}>
           {scriptLoaded ? (
             <PayPalButton
               amount={sum}
@@ -180,7 +180,7 @@ const Checkout = ({ product }: { product: any }) => {
             <span>loading...</span>
           )}
         </Col>
-        <Col span={6}>
+        <Col lg={6}>
           <Title level={4}>Order Summary</Title>
           <Divider orientation="left" plain className="divider"></Divider>
           <div className={styles.wrapper1}>

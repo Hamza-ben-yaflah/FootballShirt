@@ -17,14 +17,14 @@ const Cart = () => {
       <Divider orientation="left" plain className="divider">
         <Title level={2}>SHIPPING ADDRESS</Title>
       </Divider>
-      <Row justify="center">
+      <Row justify="space-around" wrap>
         <Col lg={12}>
           <div className={styles.container}>
             <BuyForm details="" />
           </div>
         </Col>
         <Col lg={12}>
-          <Row>
+          <Row justify="space-around" wrap>
             {obj.line_items.map((item: any) => (
               <Col key={item.id}>
                 <Card

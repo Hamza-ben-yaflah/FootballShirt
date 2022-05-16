@@ -63,8 +63,8 @@ const ShirtDetails = ({ product }: { product: any }) => {
 
   return (
     <div className={styles.container}>
-      <Row wrap>
-        <Col lg={12}>
+      <Row wrap gutter={18}>
+        <Col lg={14}>
           <Slide {...zoomOutProperties}>
             {images.map((slideImage, index) => (
               <div className={styles.slider} key={index}>
@@ -78,7 +78,7 @@ const ShirtDetails = ({ product }: { product: any }) => {
             ))}
           </Slide>
         </Col>
-        <Col lg={12}>
+        <Col lg={10}>
           <div className={styles.col2Container}>
             <span style={{ fontSize: "40px" }}>{product.name}</span>
             <br />

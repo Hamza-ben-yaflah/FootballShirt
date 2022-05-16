@@ -42,12 +42,12 @@ const buyProcess = ({ product }: { product: any }) => {
         <Title level={2}>SHIPPING ADDRESS</Title>
       </Divider>
       <Row justify="space-around" wrap>
-        <Col span={12}>
+        <Col lg={12}>
           <div className={styles.container}>
             <BuyForm details={product} />
           </div>
         </Col>
-        <Col span={12}>
+        <Col lg={12}>
           <Card
             card={{
               id: "",

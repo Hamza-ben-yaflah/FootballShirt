@@ -426,7 +426,14 @@ const BuyForm = ({ details }: { details: any }) => {
       >
         <Input />
       </Form.Item>
-      DHL EXPRESS DELIVERY TO EUROPE 11£()
+      <p>
+        DHL EXPRESS DELIVERY TO EUROPE{" "}
+        <strong style={{ fontSize: "20px" }}>11£</strong>
+      </p>
+      <p>
+        DHL EXPRESS DELIVERY TO REST OF THE WORLD{" "}
+        <strong style={{ fontSize: "20px" }}>14.5£</strong>
+      </p>
       <br />
       <br />
       <div className={styles.btn}>
