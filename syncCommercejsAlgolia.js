@@ -1,7 +1,6 @@
-// import commerce from "./lib/commerce";
-const CommerceSDK = require("@chec/commerce.js");
 const algoliasearch = require("algoliasearch");
 
+const CommerceSDK = require("@chec/commerce.js");
 const commerceClient = new CommerceSDK(
   "pk_423404c1106d64cdc90541b24c191b120c413498279c6"
 );

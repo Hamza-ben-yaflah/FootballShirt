@@ -4,9 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import vintage from "../../public/vintage.jpg";
 import styles from "./NavBar.module.css";
-import commerce from "../../lib/commerce";
 import { useCartSatet } from "../../context/cart";
-import { useCartDispatch } from "../../context/cart";
 import React, { useEffect, useRef, useState } from "react";
 import CartModal from "../CartModal/CartModal";
 import { connectSearchBox } from "react-instantsearch-dom";
@@ -14,12 +12,11 @@ import SearchBox from "../SearchBox/SearchBox";
 
 import { InstantSearch, Hits, Highlight } from "react-instantsearch-dom";
 import algoliasearch from "algoliasearch";
-
 import { connectStateResults } from "react-instantsearch-dom";
 
 const searchClient = algoliasearch(
-  "MK5PVV9FL2",
-  "5f7438a9862dba119cf7ab68bc725827"
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
+  process.env.NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY
 );
 const CustomSearchBox = connectSearchBox(SearchBox);
 
@@ -39,7 +36,7 @@ const Product = ({ hit }: any) => {
           }}
         >
           <Highlight attribute="name" hit={hit} />
-          <img src={hit.image.url} width="80" height="80" />
+          <img src={hit.image.url} width="80" height="80" alt="shirtImage" />
         </a>
       </span>
     </div>
@@ -65,7 +62,6 @@ const Search = () => {
 
 const NavBar = () => {
   const products = useCartSatet();
-  console.log(products);
 
   const [visible, setVisible] = useState(false);
 

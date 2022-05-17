@@ -1,11 +1,6 @@
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
 import { Card } from "antd";
 import Typography from "antd/lib/typography";
-import Image from "next/image";
+
 import Link from "next/link";
 
 interface ICardShirt {
@@ -17,10 +12,7 @@ interface ICardShirt {
 
 const { Meta } = Card;
 
-const { Text } = Typography;
 const CardShirt = ({ card }: { card: any }) => {
-  console.log(card);
-
   return (
     <Link href={card.id ? `/products/${card.id}` : "#"} passHref>
       <Card

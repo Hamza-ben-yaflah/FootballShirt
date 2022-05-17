@@ -4,8 +4,6 @@ import Card from "../Card/Card";
 import styles from "./CardContainer.module.css";
 
 const CardContaier = ({ data, categorie }: any) => {
-  console.log(data);
-
   return (
     <div id="shirts">
       <Divider orientation="left" plain className="divider">

@@ -1,6 +1,5 @@
 import { Button, Divider, Modal } from "antd";
 import Title from "antd/lib/typography/Title";
-
 import Text from "antd/lib/typography/Text";
 import React from "react";
 import CartItem from "../CartItem/CartItem";

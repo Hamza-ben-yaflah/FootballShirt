@@ -1,8 +1,6 @@
 import { Button, Form, Input, Select } from "antd";
 import styles from "./BuyForm.module.css";
-import { useState } from "react";
 import Router from "next/router";
-import emailjs from "emailjs-com";
 
 const { Option } = Select;
 
@@ -17,8 +15,6 @@ interface dataProps {
 }
 
 const BuyForm = ({ details }: { details: any }) => {
-  console.log(details);
-
   const onFinish = (values: dataProps) => {
     const form = document.getElementById("buyProcess");
 

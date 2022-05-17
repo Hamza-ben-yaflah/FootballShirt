@@ -2,7 +2,6 @@
 import { Button, Divider } from "antd";
 import Text from "antd/lib/typography/Text";
 import React from "react";
-import Image from "next/image";
 
 import { useCartDispatch } from "../../context/cart";
 import commerce from "../../lib/commerce";

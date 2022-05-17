@@ -6,6 +6,7 @@ import Link from "next/link";
 import styles from "./pid.module.css";
 import commerce from "../../lib/commerce";
 import { useCartDispatch } from "../../context/cart";
+import { useCartSatet } from "../../context/cart";
 import { useEffect, useState } from "react";
 const { Text, Title } = Typography;
 import { Slide } from "react-slideshow-image";
@@ -38,16 +39,24 @@ export async function getStaticProps({ params }: any) {
 }
 
 const ShirtDetails = ({ product }: { product: any }) => {
-  console.log(product);
+  console.log(product, "hello");
+
   const { setCart } = useCartDispatch();
+  const state = useCartSatet();
   const [disable, setDisable] = useState(false);
+  console.log(state, "state");
 
   const addToCart = () => {
-    commerce.cart.add(product.id).then(({ cart }: any) => {
-      setCart(cart);
-      setDisable(true);
-    });
+    console.log(state, "function");
+    if (state.line_items?.find((elem: any) => elem.product_id === product.id)) {
+      alert("this shirt is already in the cart");
+    } else
+      commerce.cart.add(product.id).then(({ cart }: any) => {
+        setCart(cart);
+        setDisable(true);
+      });
   };
+
   const images = [
     { url: product.assets[0].url, caption: "Slide 1" },
     { url: product.assets[1].url, caption: "Slide 2" },
