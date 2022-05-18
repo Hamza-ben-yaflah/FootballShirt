@@ -96,7 +96,7 @@ const CheckoutCart = () => {
     }
     const script = document.createElement("script");
     script.src =
-      "https://www.paypal.com/sdk/js?client-id=AZd8WuAQ2bTZMlf0-4WjRL-kyJg5LIZceVDGC1cwOXQFVShXO-CZOomOI5len43VfbWhv_Wy4uJ3iygm";
+      "https://www.paypal.com/sdk/js?client-id=AZd8WuAQ2bTZMlf0-4WjRL-kyJg5LIZceVDGC1cwOXQFVShXO-CZOomOI5len43VfbWhv_Wy4uJ3iygm&disable-funding=credit,card";
 
     script.type = "text/javascript";
     script.async = true;
@@ -117,87 +117,92 @@ const CheckoutCart = () => {
     products.subtotal.raw +
     findCountry(country as string, products.total_items);
   return (
-    <Row justify="space-around">
-      <Col span={12}>
-        {scriptLoaded ? (
-          <PayPalButton
-            amount={sum}
-            onSuccess={(details: any) => {
-              emailjs
-                .send(
-                  "service_4fxlf8p",
-                  "template_kspebic",
-                  {
-                    firstname: firstname,
-                    lastname: lastname,
-                    email: email,
-                    phone: phone,
-                    country: country,
-                    streetAdress: streetAdress,
-                    city: city,
-                    shirtName: ShirtsName,
-                    price: products.subtotal.formatted_with_symbol,
-                  },
-                  "iDjDlkC3NKipnLh_h"
-                )
-                .then((result) => {
-                  console.log(result);
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
-              alert(
-                "Transaction completed by " + details.payer.name.given_name
-              );
-            }}
-          />
-        ) : (
-          <span>loading...</span>
-        )}
-      </Col>
+    <>
+      <Divider orientation="left" plain className="divider">
+        <Title level={2}>PAYMENT</Title>
+      </Divider>
+      <Row justify="space-around">
+        <Col lg={12}>
+          {scriptLoaded ? (
+            <PayPalButton
+              amount={sum}
+              onSuccess={(details: any) => {
+                emailjs
+                  .send(
+                    "service_4fxlf8p",
+                    "template_kspebic",
+                    {
+                      firstname: firstname,
+                      lastname: lastname,
+                      email: email,
+                      phone: phone,
+                      country: country,
+                      streetAdress: streetAdress,
+                      city: city,
+                      shirtName: ShirtsName,
+                      price: products.subtotal.formatted_with_symbol,
+                    },
+                    "iDjDlkC3NKipnLh_h"
+                  )
+                  .then((result) => {
+                    console.log(result);
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+                alert(
+                  "Transaction completed by " + details.payer.name.given_name
+                );
+              }}
+            />
+          ) : (
+            <span>loading...</span>
+          )}
+        </Col>
 
-      <Col span={6}>
-        <Title level={4}>Order Summary</Title>
-        <Divider orientation="left" plain className="divider"></Divider>
-        <div className={styles.wrapper1}>
-          <Text>Cart Subtotal</Text>
-          <Text strong>{`${products.subtotal.raw} £`}</Text>
-        </div>
-        <div className={styles.wrapper1}>
-          <Text>Shipping</Text>
-          <Text strong>{`${findCountry(
-            country as string,
-            products.total_items
-          )} £`}</Text>
-        </div>
-        <div className={styles.wrapper1}>
-          <Text>Order Total Excl. Tax</Text>
-          <Text strong>{`${sum} £`}</Text>
-        </div>
-        <div className={styles.wrapper1}>
-          <Text>Order Total Incl. Tax</Text>
-          <Text strong>{`${sum} £`}</Text>
-        </div>
-        <br />
-        <Title level={4}>Items</Title>
-        <Divider orientation="left" plain className="divider"></Divider>
-        <div className={styles.wrapper2}>
-          {products.line_items.map((item: any) => (
-            <CartItem key={item.id} item={item} />
-          ))}
-        </div>
-        <br />
-        <Title level={4}>Ship To</Title>
-        <Divider orientation="left" plain className="divider"></Divider>
-        <div className={styles.shippWrapper}>
-          <Text>{`Email :  ${props.email}`}</Text>
-          <Text>{`First Name :  ${props.firstname}`}</Text>
-          <Text>{`Last Name :  ${props.lastname}`}</Text>
-          <Text>{`Country : ${props.country}`}</Text>
-          <Text>{`City : ${props.city}`}</Text>
-        </div>
-      </Col>
-    </Row>
+        <Col lg={6}>
+          <Title level={4}>Order Summary</Title>
+          <Divider orientation="left" plain className="divider"></Divider>
+          <div className={styles.wrapper1}>
+            <Text>Cart Subtotal</Text>
+            <Text strong>{`${products.subtotal.raw} £`}</Text>
+          </div>
+          <div className={styles.wrapper1}>
+            <Text>Shipping</Text>
+            <Text strong>{`${findCountry(
+              country as string,
+              products.total_items
+            )} £`}</Text>
+          </div>
+          <div className={styles.wrapper1}>
+            <Text>Order Total Excl. Tax</Text>
+            <Text strong>{`${sum} £`}</Text>
+          </div>
+          <div className={styles.wrapper1}>
+            <Text>Order Total Incl. Tax</Text>
+            <Text strong>{`${sum} £`}</Text>
+          </div>
+          <br />
+          <Title level={4}>Items</Title>
+          <Divider orientation="left" plain className="divider"></Divider>
+          <div className={styles.wrapper2}>
+            {products.line_items.map((item: any) => (
+              <CartItem key={item.id} item={item} />
+            ))}
+          </div>
+          <br />
+          <Title level={4}>Ship To</Title>
+          <Divider orientation="left" plain className="divider"></Divider>
+          <div className={styles.shippWrapper}>
+            <Text>{`Email :  ${props.email}`}</Text>
+            <Text>{`First Name :  ${props.firstname}`}</Text>
+            <Text>{`Last Name :  ${props.lastname}`}</Text>
+            <Text>{`Country : ${props.country}`}</Text>
+            <Text>{`City : ${props.city}`}</Text>
+          </div>
+        </Col>
+      </Row>
+    </>
   );
 };
 

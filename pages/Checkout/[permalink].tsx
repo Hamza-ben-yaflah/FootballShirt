@@ -125,7 +125,7 @@ const Checkout = ({ product }: { product: any }) => {
     }
     const script = document.createElement("script");
     script.src =
-      "https://www.paypal.com/sdk/js?client-id=AZd8WuAQ2bTZMlf0-4WjRL-kyJg5LIZceVDGC1cwOXQFVShXO-CZOomOI5len43VfbWhv_Wy4uJ3iygm";
+      "https://www.paypal.com/sdk/js?client-id=AZd8WuAQ2bTZMlf0-4WjRL-kyJg5LIZceVDGC1cwOXQFVShXO-CZOomOI5len43VfbWhv_Wy4uJ3iygm&disable-funding=credit,card";
 
     script.type = "text/javascript";
     script.async = true;
