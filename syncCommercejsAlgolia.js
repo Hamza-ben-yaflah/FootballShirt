@@ -1,10 +1,14 @@
 const algoliasearch = require("algoliasearch");
+require("dotenv").config();
 
 const CommerceSDK = require("@chec/commerce.js");
 const commerceClient = new CommerceSDK(
-  "pk_423404c1106d64cdc90541b24c191b120c413498279c6"
+  process.env.NEXT_PUBLIC_CHEC_PUBLIC_API_KEY
 );
-const client = algoliasearch("MK5PVV9FL2", "5f7438a9862dba119cf7ab68bc725827");
+const client = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
+  process.env.NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY
+);
 
 const index = client.initIndex("products");
 
