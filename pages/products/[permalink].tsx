@@ -1,16 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import { Button, Col, Row } from "antd";
 import Typography from "antd/lib/typography";
-import Image from "next/image";
 import Link from "next/link";
-import styles from "./pid.module.css";
-import commerce from "../../lib/commerce";
-import { useCartDispatch } from "../../context/cart";
-import { useCartSatet } from "../../context/cart";
-import React, { useEffect, useState } from "react";
-const { Text, Title } = Typography;
+import { useState } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import { useCartDispatch, useCartSatet } from "../../context/cart";
+import commerce from "../../lib/commerce";
+import styles from "./pid.module.css";
+
+const { Text, Title } = Typography;
 
 export async function getStaticPaths() {
   const { data: products } = await commerce.products.list();
@@ -125,7 +124,12 @@ const ShirtDetails = ({ product }: { product: any }) => {
                 ADD TO CART
               </Button>
               <Link href={`/BuyProcess/${product.permalink}`} passHref>
-                <Button type="primary" size="large" style={{ marginTop: 20 }}>
+                <Button
+                  type="primary"
+                  size="large"
+                  style={{ marginTop: 20 }}
+                  data-cy="buy-button"
+                >
                   <a>BUY NOW</a>
                 </Button>
               </Link>

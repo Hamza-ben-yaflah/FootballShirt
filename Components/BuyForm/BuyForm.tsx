@@ -1,6 +1,6 @@
 import { Button, Form, Input, Select } from "antd";
-import styles from "./BuyForm.module.css";
 import Router from "next/router";
+import styles from "./BuyForm.module.css";
 
 const { Option } = Select;
 
@@ -95,8 +95,10 @@ const BuyForm = ({ details }: { details: any }) => {
         hasFeedback
         rules={[{ required: true, message: "Please select your country!" }]}
       >
-        <Select placeholder="Please select a country">
-          <Option value="Afghanistan">Afghanistan</Option>
+        <Select placeholder="Please select a country" data-cy="select-button">
+          <Option data-cy="Afghanistan" value="Afghanistan">
+            Afghanistan
+          </Option>
           <Option value="Åland Islands">Åland Islands</Option>
           <Option value="Albania">Albania</Option>
           <Option value="Algeria">Algeria</Option>

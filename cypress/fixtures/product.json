@@ -1,0 +1,153 @@
+{
+  "pageProps": {
+    "product": {
+      "id": "prod_ZRjywMLEgrl7Y8",
+      "created": 1650886627,
+      "updated": 1651242872,
+      "active": true,
+      "permalink": "wwWPLo",
+      "name": "Udinese 2000-01",
+      "description": "<p>Home shirt as worn by the side which secured a record-breaking 19th league title for the Red Devils, surpassing the previous record held by arch-rivals Liverpool. The campaign is arguably most remembered for Wayne Rooney scoring one of the great Manchester Derby goals, with his iconic bicycle kick winner defeating City 2-1 at Old Trafford in February 2011. Sir Alex Ferguson’s</p>",
+      "price": {
+        "raw": 50,
+        "formatted": "50.00",
+        "formatted_with_symbol": "£50.00",
+        "formatted_with_code": "50.00 GBP"
+      },
+      "inventory": {
+        "managed": false,
+        "available": 0
+      },
+      "sku": null,
+      "sort_order": 0,
+      "seo": {
+        "title": null,
+        "description": null
+      },
+      "thank_you_url": null,
+      "meta": null,
+      "conditionals": {
+        "is_active": true,
+        "is_tax_exempt": false,
+        "is_pay_what_you_want": false,
+        "is_inventory_managed": false,
+        "is_sold_out": false,
+        "has_digital_delivery": false,
+        "has_physical_delivery": false,
+        "has_images": true,
+        "collects_fullname": false,
+        "collects_shipping_address": false,
+        "collects_billing_address": false,
+        "collects_extra_fields": false
+      },
+      "is": {
+        "active": true,
+        "tax_exempt": false,
+        "pay_what_you_want": false,
+        "inventory_managed": false,
+        "sold_out": false
+      },
+      "has": {
+        "digital_delivery": false,
+        "physical_delivery": false,
+        "images": true
+      },
+      "collects": {
+        "fullname": false,
+        "shipping_address": false,
+        "billing_address": false,
+        "extra_fields": false
+      },
+      "checkout_url": {
+        "checkout": "https://checkout.chec.io/wwWPLo?checkout=true",
+        "display": "https://checkout.chec.io/wwWPLo"
+      },
+      "extra_fields": [],
+      "variant_groups": [
+        {
+          "id": "vgrp_0YnEoqgBOle7P6",
+          "name": "Size",
+          "meta": null,
+          "created": 1650886627,
+          "updated": 1650886627,
+          "options": [
+            {
+              "id": "optn_DWy4oG4Paq56Jx",
+              "name": "L",
+              "price": {
+                "raw": 0,
+                "formatted": "0.00",
+                "formatted_with_symbol": "£0.00",
+                "formatted_with_code": "0.00 GBP"
+              },
+              "assets": [],
+              "meta": null,
+              "created": 1650886627,
+              "updated": 1651242872
+            }
+          ]
+        }
+      ],
+      "categories": [
+        {
+          "id": "cat_RyWOwmEnxwnEa2",
+          "slug": "newproduct",
+          "name": "newproduct"
+        }
+      ],
+      "assets": [
+        {
+          "id": "ast_A12JwrQrPvlPjn",
+          "url": "https://cdn.chec.io/merchants/42340/assets/i0pqp4fmgzfuoBps|UD.png",
+          "description": null,
+          "is_image": true,
+          "filename": "UD.png",
+          "file_size": 2092384,
+          "file_extension": "png",
+          "image_dimensions": {
+            "width": 2048,
+            "height": 2048
+          },
+          "meta": [],
+          "created_at": 1650886165,
+          "updated_at": 1650886186
+        },
+        {
+          "id": "ast_Kvg9l6VGEyl1bB",
+          "url": "https://cdn.chec.io/merchants/42340/assets/zBi6NC46rgJow0pQ|udb.png",
+          "description": null,
+          "is_image": true,
+          "filename": "udb.png",
+          "file_size": 2114815,
+          "file_extension": "png",
+          "image_dimensions": {
+            "width": 2048,
+            "height": 2048
+          },
+          "meta": [],
+          "created_at": 1650894594,
+          "updated_at": 1650894617
+        }
+      ],
+      "image": {
+        "id": "ast_A12JwrQrPvlPjn",
+        "url": "https://cdn.chec.io/merchants/42340/assets/i0pqp4fmgzfuoBps|UD.png",
+        "description": null,
+        "is_image": true,
+        "filename": "UD.png",
+        "file_size": 2092384,
+        "file_extension": "png",
+        "image_dimensions": {
+          "width": 2048,
+          "height": 2048
+        },
+        "meta": [],
+        "created_at": 1650886165,
+        "updated_at": 1650886186
+      },
+      "related_products": [],
+      "attributes": []
+    }
+  },
+  "__N_SSG": true
+}

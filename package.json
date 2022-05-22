@@ -28,7 +28,7 @@
     "react-instantsearch-dom": "^6.24.2",
     "react-paypal-button-v2": "^2.6.3",
     "react-scroll": "^1.8.7",
-    "react-slideshow-image": "^3.7.3"
+    "react-slideshow-image": "^3.7.5"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.2",

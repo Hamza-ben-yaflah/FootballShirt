@@ -1,5 +1,4 @@
 import { Card } from "antd";
-import Typography from "antd/lib/typography";
 
 import Link from "next/link";
 
@@ -16,6 +15,7 @@ const CardShirt = ({ card }: { card: any }) => {
   return (
     <Link href={card.id ? `/products/${card.id}` : "#"} passHref>
       <Card
+        data-cy="product"
         hoverable
         style={{ width: 270 }}
         cover={
