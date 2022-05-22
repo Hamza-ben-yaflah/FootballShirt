@@ -21,6 +21,8 @@ const searchClient = algoliasearch(
 const CustomSearchBox = connectSearchBox(SearchBox);
 
 const Product = ({ hit }: any) => {
+  console.log(hit, "aaaaaaa");
+
   return (
     <div style={{ marginTop: "10px", backgroundColor: "white" }}>
       <span

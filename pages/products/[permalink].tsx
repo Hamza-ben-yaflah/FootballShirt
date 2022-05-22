@@ -7,7 +7,7 @@ import styles from "./pid.module.css";
 import commerce from "../../lib/commerce";
 import { useCartDispatch } from "../../context/cart";
 import { useCartSatet } from "../../context/cart";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 const { Text, Title } = Typography;
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
@@ -105,15 +105,15 @@ const ShirtDetails = ({ product }: { product: any }) => {
               {" "}
               Description -{" "}
             </strong>
-            <p
+
+            <text
+              dangerouslySetInnerHTML={{ __html: product.description }}
               style={{
                 fontSize: "20px",
                 fontFamily: "roboto",
                 textAlign: "start",
               }}
-            >
-              {product.description}
-            </p>
+            ></text>
 
             <div className={styles.btn}>
               <Button

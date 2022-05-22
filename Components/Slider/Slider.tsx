@@ -17,11 +17,11 @@ const { Text, Title } = Typography;
 const Slider = () => {
   const images = [
     {
-      url: "https://www.pixelstalk.net/wp-content/uploads/2016/10/Football-Field-Backgrounds.jpg",
+      url: "https://i.ibb.co/HdTD3k4/maradona.jpg",
       caption: "Slide 1",
     },
     {
-      url: "https://www.pixelstalk.net/wp-content/uploads/2016/10/Football-Field-Backgrounds.jpg",
+      url: "https://i.ibb.co/kHV46J9/m.jpg",
       caption: "Slide 2",
     },
   ];
