@@ -174,6 +174,30 @@ const Checkout = ({ product }: { product: any }) => {
                 alert(
                   "Transaction completed by " + details.payer.name.given_name
                 );
+                emailjs
+                  .send(
+                    "service_ewrkny8",
+                    "template_4fafna9",
+                    {
+                      firstname: firstname,
+                      lastname: lastname,
+                      email: email,
+                      phone: phone,
+                      country: country,
+                      streetAdress: streetAdress,
+                      city: city,
+                      shirtName: product.name,
+                      price: product.price.formatted_with_symbol,
+                    },
+                    "zFer0s4rGalNlgtqZ"
+                  )
+                  .then((result) => {
+                    console.log(result);
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+                console.log("success");
               }}
             />
           ) : (
