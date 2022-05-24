@@ -50,6 +50,7 @@ const BuyForm = ({ details }: { details: any }) => {
   return (
     <Form name="buyProcess" wrapperCol={{ span: 20 }} onFinish={onFinish}>
       <Form.Item
+        data-cy="email"
         name="email"
         label="E-mail"
         rules={[
@@ -95,7 +96,12 @@ const BuyForm = ({ details }: { details: any }) => {
         hasFeedback
         rules={[{ required: true, message: "Please select your country!" }]}
       >
-        <Select placeholder="Please select a country" data-cy="select-button">
+        <Select
+          placeholder="Please select a country"
+          data-cy="select-button"
+          defaultActiveFirstOption
+          showSearch={true}
+        >
           <Option data-cy="Afghanistan" value="Afghanistan">
             Afghanistan
           </Option>
