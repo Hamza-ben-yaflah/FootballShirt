@@ -46,7 +46,7 @@ const CartItem = ({ item, visible }: any) => {
         <div
           style={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
           }}

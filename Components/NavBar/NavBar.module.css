@@ -30,6 +30,9 @@
   font-size: 20px;
   color: white;
 }
+.ais-Hits-list {
+  list-style-type: none;
+}
 
 .link:hover {
   color: #63b32f;
@@ -39,4 +42,10 @@
   cursor: pointer;
   width: 50%;
   height: 50%;
+}
+.result {
+  /* position: absolute;
+  z-index: 99999;
+  top: 20%;
+  right: 12%; */
 }

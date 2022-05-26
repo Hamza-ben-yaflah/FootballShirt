@@ -9,55 +9,37 @@ import React, { useEffect, useRef, useState } from "react";
 import CartModal from "../CartModal/CartModal";
 import { connectSearchBox } from "react-instantsearch-dom";
 import SearchBox from "../SearchBox/SearchBox";
+import Hits from "../Hits/Hits";
 
-import { InstantSearch, Hits, Highlight } from "react-instantsearch-dom";
+import { InstantSearch, Highlight } from "react-instantsearch-dom";
 import algoliasearch from "algoliasearch";
 import { connectStateResults } from "react-instantsearch-dom";
+import { connectHits } from "react-instantsearch-dom";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
   process.env.NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY
 );
 const CustomSearchBox = connectSearchBox(SearchBox);
-
-const Product = ({ hit }: any) => {
-  console.log(hit, "aaaaaaa");
-
-  return (
-    <div style={{ marginTop: "10px", backgroundColor: "white" }}>
-      <span
-        className="hit-name"
-        style={{ color: "black", backgroundColor: "white" }}
-      >
-        <a
-          href={`/products/${hit.permalink}`}
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            fontSize: "20px",
-          }}
-        >
-          <Highlight attribute="name" hit={hit} />
-          <img src={hit.image.url} width="80" height="80" alt="shirtImage" />
-        </a>
-      </span>
-    </div>
-  );
-};
+const CustomHits = connectHits(Hits);
 
 const Results = connectStateResults(({ searchState }: any) =>
-  searchState && searchState.query ? <Hits hitComponent={Product} /> : null
+  searchState && searchState.query ? <CustomHits /> : null
 );
 
 const Search = () => {
   return (
-    <div>
-      <CustomSearchBox
-        translations={{
-          placeholder: "Search ",
-        }}
-      />
-      <Results />
+    <div className={styles.searchwrapper}>
+      <div className={styles.searchbox}>
+        <CustomSearchBox
+          translations={{
+            placeholder: "Search ",
+          }}
+        />
+      </div>
+      <div className={styles.result}>
+        <Results />
+      </div>
     </div>
   );
 };

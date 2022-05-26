@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  border: 0.5px solid rgb(153, 139, 139);
+  font-size: 20px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
