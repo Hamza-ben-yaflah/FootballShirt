@@ -64,7 +64,6 @@ const NavBar = () => {
         className={styles.wrapper}
         style={{ height: "200px", overflowY: "auto" }}
       >
-        <div></div>
         <Link href="/" passHref>
           <Image
             src={vintage}
@@ -75,6 +74,26 @@ const NavBar = () => {
           />
         </Link>
 
+        <div className={styles.section}>
+          <Menu className={styles.menu} theme="dark">
+            <Menu.Item key="home">
+              <Link href={"/"} passHref>
+                <a className={styles.link}>Home </a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="newproduct">
+              <Link href={"/"} passHref>
+                <a className={styles.link}>NewProduct</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="matchworn">
+              <Link href={"/MatchWorn/Matchworn"} passHref>
+                <a className={styles.link}>MatchWorn</a>
+              </Link>
+            </Menu.Item>
+          </Menu>
+        </div>
+        <div></div>
         <div
           style={{
             display: "flex",
@@ -94,25 +113,7 @@ const NavBar = () => {
           </Badge>
         </div>
       </div>
-      <section className={styles.section}>
-        <Menu className={styles.menu} theme="dark">
-          <Menu.Item key="home">
-            <Link href={"/"} passHref>
-              <a className={styles.link}>Home </a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="newproduct">
-            <Link href={"/"} passHref>
-              <a className={styles.link}>NewProduct</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="matchworn">
-            <Link href={"/MatchWorn/Matchworn"} passHref>
-              <a className={styles.link}>MatchWorn</a>
-            </Link>
-          </Menu.Item>
-        </Menu>
-      </section>
+
       {visible ? (
         <CartModal
           visible={visible}

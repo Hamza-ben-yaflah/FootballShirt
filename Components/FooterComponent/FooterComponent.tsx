@@ -9,11 +9,11 @@ import styles from "./FooterComponent.module.css";
 const { Title } = Typography;
 const FooterComponent = () => {
   return (
-    <div className={styles.Cont}>
+    <div className={styles.Cont} data-testid="footer">
       <div className={styles.container}>
         <ul className={styles.parag}>
           <Title level={5} underline={true}>
-            NOS SRVICES
+            NOS SERVICES
           </Title>
 
           <li>

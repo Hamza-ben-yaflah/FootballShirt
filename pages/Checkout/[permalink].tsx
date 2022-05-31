@@ -238,7 +238,6 @@ const Checkout = ({ product }: { product: any }) => {
             <div className={styles.itemWrapper}>
               <span>{product.name}</span>
               <span>{product.variant_groups[0].options[0].name}</span>
-
               <Text>{product.price.formatted_with_symbol}</Text>
             </div>
           </div>

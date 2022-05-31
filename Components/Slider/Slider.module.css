@@ -3,14 +3,18 @@
   text-align: center;
   color: white;
 }
-.shopTitle {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  bottom: 150px;
-  right: 180px;
-  font-size: 30px;
+
+.img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.9s ease-in-out;
+  transition: 2s ease-in-out;
 }
+.img:hover {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
 .shopButton {
   display: flex;
   flex-direction: column;
@@ -19,24 +23,14 @@
   left: 200px;
   width: 30%;
 }
-.image {
-  width: 100%;
-  height: 100%;
-}
-.slider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  height: 400px;
-}
 
 .button {
   appearance: none;
-  background-color: #ffffff;
-  border-width: 0;
+  background-color: transparent;
+  border: solid 1px white;
+
   box-sizing: border-box;
-  color: #000000;
+  color: #fbfbfb;
   cursor: pointer;
   display: inline-block;
   font-family: Clarkson, Helvetica, sans-serif;
@@ -48,7 +42,7 @@
   opacity: 1;
   outline: 0;
   padding: 1.5em 2.2em;
-  position: relative;
+  position: absolute;
   text-align: center;
   text-decoration: none;
   text-rendering: geometricprecision;
@@ -92,9 +86,4 @@
 .button span {
   z-index: 1;
   position: relative;
-}
-
-.new {
-  font-size: 30px;
-  color: white;
 }

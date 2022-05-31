@@ -24,6 +24,7 @@ const CartItem = ({ item, visible }: any) => {
         marginBottom: "20px",
         fontSize: "20px",
       }}
+      data-testid="CardItem"
     >
       <img width={200} height={200} alt="shirt img" src={item.image.url} />
       {visible ? (

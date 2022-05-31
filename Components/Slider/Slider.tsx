@@ -3,11 +3,10 @@
 import { Button, Col, Row } from "antd";
 import React from "react";
 import Image from "next/image";
-import vintage from "../../public/image.jpg";
-import vini from "../../public/soccer.jpg";
-import { Slide } from "react-slideshow-image";
+import vintage from "../../public/arsenal.jpg";
+
 import "react-slideshow-image/dist/styles.css";
-import real from "../../public/real.jpg";
+
 import Typography from "antd/lib/typography";
 import styles from "./Slider.module.css";
 import { Link } from "react-scroll";
@@ -15,59 +14,47 @@ import { Link } from "react-scroll";
 const { Text, Title } = Typography;
 
 const Slider = () => {
-  const images = [
-    {
-      url: "https://i.ibb.co/HdTD3k4/maradona.jpg",
-      caption: "Slide 1",
-    },
-    {
-      url: "https://i.ibb.co/kHV46J9/m.jpg",
-      caption: "Slide 2",
-    },
-  ];
-
   return (
-    <Row wrap>
-      <Col lg={24}>
-        <Slide>
-          {images.map((slideImage, index) =>
-            index === 0 ? (
-              <div key={index} className={styles.container}>
-                <img
-                  src={slideImage.url}
-                  width="100%"
-                  height="100%"
-                  alt="silderImage"
-                />
-                <Link to="shirts" smooth={true} duration={1000}>
-                  <div className={styles.shopButton}>
-                    <button className={styles.button}>
-                      <span className={styles.span}>Shop Now</span>
-                    </button>
-                  </div>
-                </Link>
+    <div style={{ marginTop: "5px" }} data-testid="slider">
+      <Row wrap>
+        <Col lg={12}>
+          <div className={styles.container}>
+            <Image
+              src={vintage}
+              width={750}
+              height={750}
+              alt="silderImage"
+              className={styles.img}
+            />
+            <Link to="shirts" smooth={true} duration={1000}>
+              <div className={styles.shopButton}>
+                <button className={styles.button}>
+                  <span className={styles.span}>New Products</span>
+                </button>
               </div>
-            ) : (
-              <div key={index} className={styles.container}>
-                <img
-                  src={slideImage.url}
-                  width="100%"
-                  height="100%"
-                  alt="silderImage"
-                />
-                <a href="/MatchWorn/Matchworn">
-                  <div className={styles.shopButton}>
-                    <button className={styles.button}>
-                      <span className={styles.span}>Shop Now</span>
-                    </button>
-                  </div>
-                </a>
+            </Link>
+          </div>
+        </Col>
+        <Col lg={12}>
+          <div className={styles.container}>
+            <Image
+              src={vintage}
+              width={750}
+              height={750}
+              alt="silderImage"
+              className={styles.img}
+            />
+            <a href="/MatchWorn/Matchworn" data-testid="link">
+              <div className={styles.shopButton}>
+                <button className={styles.button}>
+                  <span className={styles.span}>Match Worn</span>
+                </button>
               </div>
-            )
-          )}
-        </Slide>
-      </Col>
-    </Row>
+            </a>
+          </div>
+        </Col>
+      </Row>
+    </div>
   );
 };
 

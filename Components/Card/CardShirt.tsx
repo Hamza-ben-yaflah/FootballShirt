@@ -2,7 +2,7 @@ import { Card } from "antd";
 
 import Link from "next/link";
 
-interface ICardShirt {
+export interface ICardShirt {
   id?: string;
   image: string;
   description: string;
@@ -11,11 +11,12 @@ interface ICardShirt {
 
 const { Meta } = Card;
 
-const CardShirt = ({ card }: { card: any }) => {
+const CardShirt = ({ card }: { card: ICardShirt }) => {
   return (
     <Link href={card.id ? `/products/${card.id}` : "#"} passHref>
       <Card
         data-cy="product"
+        data-testid="linkId"
         hoverable
         style={{ width: 270 }}
         cover={

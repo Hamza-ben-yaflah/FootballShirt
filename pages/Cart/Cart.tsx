@@ -3,7 +3,7 @@ import Title from "antd/lib/typography/Title";
 import React from "react";
 import { PayPalButton } from "react-paypal-button-v2";
 import BuyForm from "../../Components/BuyForm/BuyForm";
-import Card from "../../Components/Card/Card";
+import Card from "../../Components/Card/CardShirt";
 import CartItem from "../../Components/CartItem/CartItem";
 import { useCartSatet } from "../../context/cart";
 import styles from "./Cart.module.css";

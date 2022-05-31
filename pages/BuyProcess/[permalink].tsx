@@ -2,7 +2,7 @@ import { Button, Checkbox, Col, Divider, Row, Space } from "antd";
 import Title from "antd/lib/typography/Title";
 import { client } from "../../client/contentful";
 import BuyForm from "../../Components/BuyForm/BuyForm";
-import Card from "../../Components/Card/Card";
+import Card from "../../Components/Card/CardShirt";
 import styles from "./buyPrecess.module.css";
 import commerce from "../../lib/commerce";
 

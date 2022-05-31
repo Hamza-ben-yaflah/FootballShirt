@@ -18,7 +18,6 @@ const Home = (products: any) => {
   return (
     <>
       <Slider />
-
       <CardContainer data={products} categorie="newproduct" />
     </>
   );

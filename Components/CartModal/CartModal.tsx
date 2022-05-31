@@ -5,8 +5,6 @@ import React from "react";
 import CartItem from "../CartItem/CartItem";
 import styles from "./CartModal.module.css";
 const CartModal = ({ visible, handlerCancel, products }: any) => {
-  const sum = products.subtotal.raw + 11;
-
   return (
     <>
       <Modal
