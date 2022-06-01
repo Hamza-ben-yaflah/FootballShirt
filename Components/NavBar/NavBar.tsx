@@ -10,7 +10,6 @@ import CartModal from "../CartModal/CartModal";
 import { connectSearchBox } from "react-instantsearch-dom";
 import SearchBox from "../SearchBox/SearchBox";
 import Hits from "../Hits/Hits";
-
 import { InstantSearch, Highlight } from "react-instantsearch-dom";
 import algoliasearch from "algoliasearch";
 import { connectStateResults } from "react-instantsearch-dom";

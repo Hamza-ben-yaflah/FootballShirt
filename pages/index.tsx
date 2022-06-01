@@ -16,10 +16,10 @@ const Home = (products: any) => {
   console.log(products);
 
   return (
-    <>
+    <div data-testid="home">
       <Slider />
       <CardContainer data={products} categorie="newproduct" />
-    </>
+    </div>
   );
 };
 

@@ -2,6 +2,12 @@ import { render, screen } from "@testing-library/react";
 import CartItem from "./CartItem";
 import "@testing-library/jest-dom";
 
+jest.mock("../../context/cart", () => ({
+  useCartDispatch: () => {
+    return { setCart: jest.fn() };
+  },
+}));
+
 describe("CartItem", () => {
   it("should render a CartItem", () => {
     const item = {

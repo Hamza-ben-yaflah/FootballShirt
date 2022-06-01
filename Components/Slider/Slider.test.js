@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Slider from "./Slider";
 import "@testing-library/jest-dom";
-import exp from "constants";
 
 describe("Slider", () => {
   it("should render", () => {
@@ -12,6 +11,7 @@ describe("Slider", () => {
     expect(link).toHaveAttribute("href", "/MatchWorn/Matchworn");
   });
 });
+
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: jest.fn().mockImplementation((query) => ({

@@ -7,7 +7,7 @@ import { useCartDispatch } from "../../context/cart";
 import commerce from "../../lib/commerce";
 
 const CartItem = ({ item, visible }: any) => {
-  console.log(item);
+  console.log(item, "mock");
 
   const { setCart } = useCartDispatch();
 
