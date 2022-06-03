@@ -7,6 +7,7 @@ import {
 import { Menu, Badge, Button } from "antd";
 import Image from "next/image";
 import Link from "next/link";
+import { Link as ScrollingLink } from "react-scroll";
 import vintage from "../../public/vintage.jpg";
 import styles from "./NavBar.module.css";
 import { useCartSatet } from "../../context/cart";
@@ -105,31 +106,38 @@ const NavBar = () => {
           mode="horizontal"
           overflowedIndicator={<MenuOutlined />}
         >
-          <Menu.Item key="Clubs">
+          <Menu.Item key="Home">
             <Link href={"/"} passHref>
               <a className={styles.link}>Home </a>
             </Link>
           </Menu.Item>
 
-          <Menu.SubMenu title={<a className={styles.link}>NewProduct </a>}>
+          <Menu.SubMenu title={<a className={styles.link}>Products </a>}>
             <Menu.Item key="Clubs">
-              <Link href={"#"} passHref>
+              <ScrollingLink to="CLUBS" smooth={true} duration={1000}>
                 <a className={styles.link}>
                   <span>Clubs</span>
                 </a>
-              </Link>
+              </ScrollingLink>
             </Menu.Item>
 
             <Menu.Item key="Nationals">
-              <Link href={"/"} passHref>
-                <a className={styles.link}>Nationals </a>
-              </Link>
+              <ScrollingLink to="NATIONS" smooth={true} duration={1000}>
+                <a className={styles.link}>
+                  <span>Nations</span>
+                </a>
+              </ScrollingLink>
             </Menu.Item>
           </Menu.SubMenu>
 
           <Menu.Item key="matchworn">
             <Link href={"/MatchWorn/Matchworn"} passHref>
               <a className={styles.link}>MatchWorn</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="matchworn">
+            <Link href={"/MatchWorn/Matchworn"} passHref>
+              <a className={styles.link}>Basketball</a>
             </Link>
           </Menu.Item>
         </Menu>

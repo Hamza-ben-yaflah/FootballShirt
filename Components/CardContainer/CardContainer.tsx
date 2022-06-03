@@ -3,11 +3,11 @@ import Title from "antd/lib/typography/Title";
 import Card from "../Card/CardShirt";
 import styles from "./CardContainer.module.css";
 
-const CardContaier = ({ data, categorie }: any) => {
+const CardContaier = ({ data, categorie, id }: any) => {
   return (
-    <div id="shirts" data-testid="cardContainer">
+    <div id={id} data-testid="cardContainer">
       <Divider orientation="left" plain className="divider">
-        <Title level={1}>SHIRTS</Title>
+        <Title level={1}>{id}</Title>
       </Divider>
       <div className={styles.cardContainer} data-testid="Container">
         {data.products.map((card: any) =>

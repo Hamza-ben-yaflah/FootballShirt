@@ -18,7 +18,8 @@ const Home = (products: any) => {
   return (
     <div data-testid="home">
       <Slider />
-      <CardContainer data={products} categorie="newproduct" />
+      <CardContainer data={products} categorie="club" id="CLUBS" />
+      <CardContainer data={products} categorie="nation" id="NATIONS" />
     </div>
   );
 };

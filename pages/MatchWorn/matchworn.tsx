@@ -19,7 +19,7 @@ export async function getStaticProps() {
 const MatchWorn = (products: any) => {
   return (
     <div className={styles.container}>
-      <CardContainer data={products} categorie="matchworn" />
+      <CardContainer data={products} categorie="matchworn" id="matchworn" />
     </div>
   );
 };

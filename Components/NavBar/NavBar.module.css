@@ -40,6 +40,9 @@
   list-style-type: none;
 }
 
+.ant-menu-item a {
+  color: rgba(252, 249, 249, 0.85);
+}
 .img {
   cursor: pointer;
   height: 100%;

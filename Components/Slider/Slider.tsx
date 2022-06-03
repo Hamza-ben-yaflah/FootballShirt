@@ -23,7 +23,7 @@ const Slider = () => {
         <Col lg={12}>
           <div className={styles.container}>
             <Image src={vintage} alt="silderImage" className={styles.img} />
-            <Link to="shirts" smooth={true} duration={1000}>
+            <Link to="CLUBS" smooth={true} duration={1000}>
               <div className={styles.shopButton}>
                 <button className={styles.button}>
                   <span className={styles.span}>New Products</span>
