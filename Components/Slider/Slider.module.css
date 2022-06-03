@@ -87,3 +87,17 @@
   z-index: 1;
   position: relative;
 }
+
+@media (max-width: 1260px) {
+  .shopButton {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 100px;
+    left: 200px;
+    width: 40%;
+  }
+  .span {
+    font-size: 10px;
+  }
+}

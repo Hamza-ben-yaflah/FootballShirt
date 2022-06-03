@@ -15,17 +15,14 @@ const { Text, Title } = Typography;
 
 const Slider = () => {
   return (
-    <div style={{ marginTop: "5px" }} data-testid="slider">
-      <Row wrap>
+    <div
+      style={{ marginTop: "5px", marginRight: "5px", marginLeft: "5px" }}
+      data-testid="slider"
+    >
+      <Row wrap gutter={2}>
         <Col lg={12}>
           <div className={styles.container}>
-            <Image
-              src={vintage}
-              width={750}
-              height={750}
-              alt="silderImage"
-              className={styles.img}
-            />
+            <Image src={vintage} alt="silderImage" className={styles.img} />
             <Link to="shirts" smooth={true} duration={1000}>
               <div className={styles.shopButton}>
                 <button className={styles.button}>
@@ -37,13 +34,7 @@ const Slider = () => {
         </Col>
         <Col lg={12}>
           <div className={styles.container}>
-            <Image
-              src={vintage}
-              width={750}
-              height={750}
-              alt="silderImage"
-              className={styles.img}
-            />
+            <Image src={vintage} alt="silderImage" className={styles.img} />
             <a href="/MatchWorn/Matchworn" data-testid="link">
               <div className={styles.shopButton}>
                 <button className={styles.button}>

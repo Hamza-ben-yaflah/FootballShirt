@@ -15,7 +15,9 @@
 .section {
   color: black;
 }
-
+.subMenu {
+  color: black;
+}
 .menu {
   display: flex;
   justify-content: center;
@@ -26,26 +28,24 @@
   align-items: center;
   width: 100;
 }
+
 .link {
   font-size: 20px;
-  color: white;
 }
+.link:hover {
+  color: #b3662f;
+}
+
 .ais-Hits-list {
   list-style-type: none;
 }
 
-.link:hover {
-  color: #63b32f;
-}
-
 .img {
   cursor: pointer;
-  width: 50%;
-  height: 50%;
+  height: 100%;
 }
-.result {
-  /* position: absolute;
-  z-index: 99999;
-  top: 20%;
-  right: 12%; */
+@media (max-width: 720px) {
+  .section {
+    width: 100px;
+  }
 }

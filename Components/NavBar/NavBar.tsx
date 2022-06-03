@@ -1,5 +1,10 @@
-import { ShoppingCartOutlined } from "@ant-design/icons";
-import { Menu, Badge } from "antd";
+import {
+  MenuFoldOutlined,
+  MenuOutlined,
+  MenuUnfoldOutlined,
+  ShoppingCartOutlined,
+} from "@ant-design/icons";
+import { Menu, Badge, Button } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import vintage from "../../public/vintage.jpg";
@@ -63,36 +68,17 @@ const NavBar = () => {
         className={styles.wrapper}
         style={{ height: "200px", overflowY: "auto" }}
       >
+        <div></div>
         <Link href="/" passHref>
           <Image
             src={vintage}
-            width={300}
+            width={220}
             height={150}
             alt="img"
             className={styles.img}
           />
         </Link>
 
-        <div className={styles.section}>
-          <Menu className={styles.menu} theme="dark">
-            <Menu.Item key="home">
-              <Link href={"/"} passHref>
-                <a className={styles.link}>Home </a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="newproduct">
-              <Link href={"/"} passHref>
-                <a className={styles.link}>NewProduct</a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="matchworn">
-              <Link href={"/MatchWorn/Matchworn"} passHref>
-                <a className={styles.link}>MatchWorn</a>
-              </Link>
-            </Menu.Item>
-          </Menu>
-        </div>
-        <div></div>
         <div
           style={{
             display: "flex",
@@ -112,7 +98,42 @@ const NavBar = () => {
           </Badge>
         </div>
       </div>
+      <div className={styles.section}>
+        <Menu
+          className={styles.menu}
+          theme="dark"
+          mode="horizontal"
+          overflowedIndicator={<MenuOutlined />}
+        >
+          <Menu.Item key="Clubs">
+            <Link href={"/"} passHref>
+              <a className={styles.link}>Home </a>
+            </Link>
+          </Menu.Item>
 
+          <Menu.SubMenu title={<a className={styles.link}>NewProduct </a>}>
+            <Menu.Item key="Clubs">
+              <Link href={"#"} passHref>
+                <a className={styles.link}>
+                  <span>Clubs</span>
+                </a>
+              </Link>
+            </Menu.Item>
+
+            <Menu.Item key="Nationals">
+              <Link href={"/"} passHref>
+                <a className={styles.link}>Nationals </a>
+              </Link>
+            </Menu.Item>
+          </Menu.SubMenu>
+
+          <Menu.Item key="matchworn">
+            <Link href={"/MatchWorn/Matchworn"} passHref>
+              <a className={styles.link}>MatchWorn</a>
+            </Link>
+          </Menu.Item>
+        </Menu>
+      </div>
       {visible ? (
         <CartModal
           visible={visible}
