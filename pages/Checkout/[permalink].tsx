@@ -94,7 +94,7 @@ const findCountry = (country: string) => {
 
   let shipp = 0;
   const includeCountry = europeanCountries.includes(country);
-  includeCountry ? (shipp = 11) : (shipp = 14.5);
+  includeCountry ? (shipp = 14) : (shipp = 17.5);
   return shipp;
 };
 
@@ -213,15 +213,15 @@ const Checkout = ({ product }: { product: any }) => {
           </div>
           <div className={styles.wrapper1}>
             <Text>Shipping</Text>
-            <Text>{`${findCountry(country as string)} £`}</Text>
+            <Text>{`${findCountry(country as string)} $`}</Text>
           </div>
           <div className={styles.wrapper1}>
             <Text>Order Total Excl. Tax</Text>
-            <Text>{`${sum} £`}</Text>
+            <Text>{`${sum} $`}</Text>
           </div>
           <div className={styles.wrapper1}>
             <Text>Order Total Incl. Tax</Text>
-            <Text>{`${sum} £`}</Text>
+            <Text>{`${sum} $`}</Text>
           </div>
           <br />
           <Title level={4}>Item</Title>

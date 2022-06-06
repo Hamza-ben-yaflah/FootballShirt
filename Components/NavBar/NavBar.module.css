@@ -13,10 +13,10 @@
   margin-left: auto;
 }
 .section {
-  color: black;
+  color: rgb(254, 254, 254);
 }
 .subMenu {
-  color: black;
+  color: rgb(245, 240, 240);
 }
 .menu {
   display: flex;
@@ -32,16 +32,13 @@
 .link {
   font-size: 20px;
 }
-.link:hover {
-  color: #b3662f;
-}
 
 .ais-Hits-list {
   list-style-type: none;
 }
 
 .ant-menu-item a {
-  color: rgba(252, 249, 249, 0.85);
+  color: rgba(252, 249, 249, 0.85) !important;
 }
 .img {
   cursor: pointer;

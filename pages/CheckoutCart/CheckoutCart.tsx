@@ -84,8 +84,8 @@ const CheckoutCart = () => {
     let shipp = 0;
     const includeCountry = europeanCountries.includes(country);
     includeCountry
-      ? (shipp = 11 + (total_items * 2 - 2))
-      : (shipp = 14.5 + (total_items * 3 - 3));
+      ? (shipp = 14 + (total_items * 2 - 2))
+      : (shipp = 17.5 + (total_items * 3 - 3));
     return shipp;
   };
 
@@ -165,22 +165,22 @@ const CheckoutCart = () => {
           <Divider orientation="left" plain className="divider"></Divider>
           <div className={styles.wrapper1}>
             <Text>Cart Subtotal</Text>
-            <Text strong>{`${products.subtotal.raw} £`}</Text>
+            <Text strong>{`${products.subtotal.raw} $`}</Text>
           </div>
           <div className={styles.wrapper1}>
             <Text>Shipping</Text>
             <Text strong>{`${findCountry(
               country as string,
               products.total_items
-            )} £`}</Text>
+            )} $`}</Text>
           </div>
           <div className={styles.wrapper1}>
             <Text>Order Total Excl. Tax</Text>
-            <Text strong>{`${sum} £`}</Text>
+            <Text strong>{`${sum} $`}</Text>
           </div>
           <div className={styles.wrapper1}>
             <Text>Order Total Incl. Tax</Text>
-            <Text strong>{`${sum} £`}</Text>
+            <Text strong>{`${sum} $`}</Text>
           </div>
           <br />
           <Title level={4}>Items</Title>
@@ -202,6 +202,7 @@ const CheckoutCart = () => {
           </div>
         </Col>
       </Row>
+      <br />
     </>
   );
 };

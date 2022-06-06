@@ -115,16 +115,28 @@ const NavBar = () => {
           <Menu.SubMenu title={<a className={styles.link}>Products </a>}>
             <Menu.Item key="Clubs">
               <ScrollingLink to="CLUBS" smooth={true} duration={1000}>
-                <a className={styles.link}>
+                <a>
                   <span>Clubs</span>
+                  <style jsx>{`
+                    a {
+                      color: white;
+                      font-size: 20px;
+                    }
+                  `}</style>
                 </a>
               </ScrollingLink>
             </Menu.Item>
 
             <Menu.Item key="Nationals">
               <ScrollingLink to="NATIONS" smooth={true} duration={1000}>
-                <a className={styles.link}>
+                <a>
                   <span>Nations</span>
+                  <style jsx>{`
+                    a {
+                      color: white;
+                      font-size: 20px;
+                    }
+                  `}</style>
                 </a>
               </ScrollingLink>
             </Menu.Item>
@@ -135,8 +147,8 @@ const NavBar = () => {
               <a className={styles.link}>MatchWorn</a>
             </Link>
           </Menu.Item>
-          <Menu.Item key="matchworn">
-            <Link href={"/MatchWorn/Matchworn"} passHref>
+          <Menu.Item key="Basketball">
+            <Link href={"/"} passHref>
               <a className={styles.link}>Basketball</a>
             </Link>
           </Menu.Item>
