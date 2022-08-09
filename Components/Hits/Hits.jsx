@@ -7,9 +7,7 @@ const Hits = ({ hits }) => {
     <div className={styles.wrapper}>
       <ol>
         {hits.map((hit) => (
-          <>
-            <Hit hit={hit} />
-          </>
+          <Hit hit={hit} key={hit.id} />
         ))}
       </ol>
     </div>

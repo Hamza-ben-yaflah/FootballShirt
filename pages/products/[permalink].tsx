@@ -8,6 +8,7 @@ import "react-slideshow-image/dist/styles.css";
 import { useCartDispatch, useCartSatet } from "../../context/cart";
 import commerce from "../../lib/commerce";
 import styles from "./pid.module.css";
+import Image from "next/Image";
 
 const { Text, Title } = Typography;
 
@@ -63,7 +64,13 @@ const ShirtDetails = ({ product }: { product: any }) => {
   const zoomOutProperties = {
     indicators: (i: any) => (
       <div>
-        <img src={product.assets[i].url} alt="indicatorImage " width={70}></img>
+        <Image
+          src={product.assets[i].url}
+          alt="indicatorImage "
+          width={80}
+          height={70}
+          priority
+        />
       </div>
     ),
     scale: 0.4,
@@ -76,11 +83,12 @@ const ShirtDetails = ({ product }: { product: any }) => {
           <Slide {...zoomOutProperties}>
             {images.map((slideImage, index) => (
               <div className={styles.slider} key={index}>
-                <img
+                <Image
                   src={slideImage.url}
                   width={500}
                   height={500}
                   alt="silderImage"
+                  priority
                 />
               </div>
             ))}
@@ -105,14 +113,14 @@ const ShirtDetails = ({ product }: { product: any }) => {
               Description -{" "}
             </strong>
 
-            <text
+            <section
               dangerouslySetInnerHTML={{ __html: product.description }}
               style={{
                 fontSize: "20px",
                 fontFamily: "roboto",
                 textAlign: "start",
               }}
-            ></text>
+            ></section>
 
             <div className={styles.btn}>
               <Button
@@ -130,7 +138,7 @@ const ShirtDetails = ({ product }: { product: any }) => {
                   style={{ marginTop: 20 }}
                   data-cy="buy-button"
                 >
-                  <a>BUY NOW</a>
+                  BUY NOW
                 </Button>
               </Link>
             </div>

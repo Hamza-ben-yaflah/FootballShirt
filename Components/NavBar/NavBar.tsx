@@ -1,9 +1,4 @@
-import {
-  MenuFoldOutlined,
-  MenuOutlined,
-  MenuUnfoldOutlined,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
+import { MenuOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Menu, Badge, Button } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +6,7 @@ import { Link as ScrollingLink } from "react-scroll";
 import vintage from "../../public/vintage.jpg";
 import styles from "./NavBar.module.css";
 import { useCartSatet } from "../../context/cart";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import CartModal from "../CartModal/CartModal";
 import { connectSearchBox } from "react-instantsearch-dom";
 import SearchBox from "../SearchBox/SearchBox";
@@ -77,6 +72,7 @@ const NavBar = () => {
             height={150}
             alt="img"
             className={styles.img}
+            priority
           />
         </Link>
 
@@ -99,7 +95,7 @@ const NavBar = () => {
           </Badge>
         </div>
       </div>
-      <div className={styles.section}>
+      <div className={styles.section} style={{ position: "sticky", top: "0" }}>
         <Menu
           className={styles.menu}
           theme="dark"
@@ -112,7 +108,10 @@ const NavBar = () => {
             </Link>
           </Menu.Item>
 
-          <Menu.SubMenu title={<a className={styles.link}>Products </a>}>
+          <Menu.SubMenu
+            title={<a className={styles.link}>Products </a>}
+            key="menuSub"
+          >
             <Menu.Item key="Clubs">
               <ScrollingLink to="CLUBS" smooth={true} duration={1000}>
                 <a>

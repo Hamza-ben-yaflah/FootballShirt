@@ -2,6 +2,7 @@
 import { Button, Divider } from "antd";
 import Text from "antd/lib/typography/Text";
 import React from "react";
+import Image from "next/Image";
 
 import { useCartDispatch } from "../../context/cart";
 import commerce from "../../lib/commerce";
@@ -26,7 +27,13 @@ const CartItem = ({ item, visible }: any) => {
       }}
       data-testid="CardItem"
     >
-      <img width={200} height={200} alt="shirt img" src={item.image.url} />
+      <Image
+        width={200}
+        height={200}
+        alt="shirt img"
+        src={item.image.url}
+        priority
+      />
       {visible ? (
         <div
           style={{

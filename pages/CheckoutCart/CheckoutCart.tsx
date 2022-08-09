@@ -202,7 +202,6 @@ const CheckoutCart = () => {
           </div>
         </Col>
       </Row>
-      <br />
     </>
   );
 };

@@ -228,11 +228,12 @@ const Checkout = ({ product }: { product: any }) => {
           <Divider orientation="left" plain className="divider"></Divider>
           <div className={styles.wrapper2}>
             <div>
-              <img
+              <Image
                 width={150}
                 height={150}
                 alt="shirt img"
                 src={product.image.url}
+                priority
               />
             </div>
             <div className={styles.itemWrapper}>

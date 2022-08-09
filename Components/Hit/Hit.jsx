@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Hit.module.css";
+import Image from "next/Image";
 const Hit = ({ hit }) => {
   return (
     <div className={styles.globalwrapper}>
@@ -11,7 +12,14 @@ const Hit = ({ hit }) => {
               {hit.price.formatted_with_symbol}
             </h5>
           </div>
-          <img src={hit.image.url} alt="shirtImage" className={styles.img} />
+          <Image
+            src={hit.image.url}
+            alt="shirtImage"
+            className={styles.img}
+            width={100}
+            height={100}
+            priority
+          />
         </a>
       </span>
     </div>

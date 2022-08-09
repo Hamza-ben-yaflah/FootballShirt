@@ -28,7 +28,7 @@ module.exports = withAntdLess({
 
   cssLoaderOptions: {},
   images: {
-    domains: ["images.ctfassets.net"],
+    domains: ["cdn.chec.io"],
   },
 
   webpack(config) {

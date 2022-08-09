@@ -1,5 +1,5 @@
 import { Card } from "antd";
-
+import Image from "next/Image";
 import Link from "next/link";
 
 export interface ICardShirt {
@@ -20,8 +20,13 @@ const CardShirt = ({ card }: { card: ICardShirt }) => {
         hoverable
         style={{ width: 270 }}
         cover={
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={card.image} alt="car image" width={300} height={300} />
+          <Image
+            src={card.image}
+            alt="car image"
+            width={300}
+            height={300}
+            priority
+          />
         }
       >
         <Meta title={card.description} description={card.price} />

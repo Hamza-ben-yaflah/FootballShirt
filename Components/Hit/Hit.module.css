@@ -20,6 +20,7 @@
 .span {
   height: 30px;
   text-decoration: underline;
+  color: black;
 }
 .img {
   height: 90px;
@@ -48,6 +49,7 @@
   .span {
     height: 30px;
     text-decoration: underline;
+    color: black;
   }
   .img {
     height: 90px;

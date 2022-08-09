@@ -22,7 +22,12 @@ const Slider = () => {
       <Row wrap gutter={2}>
         <Col lg={12}>
           <div className={styles.container}>
-            <Image src={vintage} alt="silderImage" className={styles.img} />
+            <Image
+              src={vintage}
+              alt="silderImage"
+              className={styles.img}
+              priority
+            />
             <Link to="CLUBS" smooth={true} duration={1000}>
               <div className={styles.shopButton}>
                 <button className={styles.button}>
